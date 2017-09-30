@@ -17,26 +17,14 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Update position of player
         var currentPosition = playerTransform.position;
-        if (Input.GetKey(KeyCode.W))
-        {
-            playerTransform.position = new Vector3(currentPosition.x, currentPosition.y + 0.1f);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            playerTransform.position = new Vector3(currentPosition.x - 0.1f, currentPosition.y);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            playerTransform.position = new Vector3(currentPosition.x, currentPosition.y - 0.1f);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            playerTransform.position = new Vector3(currentPosition.x + 0.1f, currentPosition.y);
-        }
+        currentPosition.x += Input.GetAxisRaw("Horizontal") * 5 * Time.deltaTime;
+        currentPosition.y += Input.GetAxisRaw("Vertical") * 5 * Time.deltaTime;
+        playerTransform.position = new Vector3(currentPosition.x, currentPosition.y);
 
         //TODO: Configure with Mouse position
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButton("Fire1"))
         {
             RaycastHit gunShot;
             Vector3 focus = povCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
