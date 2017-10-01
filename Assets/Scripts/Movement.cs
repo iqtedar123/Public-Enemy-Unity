@@ -23,25 +23,16 @@ public class Movement : MonoBehaviour
         currentPosition.y += Input.GetAxisRaw("Vertical") * 5 * Time.deltaTime;
         playerTransform.position = new Vector3(currentPosition.x, currentPosition.y);
 
-        //TODO: Configure with Mouse position
-        if (Input.GetButton("Fire1"))
-        {
-            RaycastHit gunShot;
-            Vector3 focus = povCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-            StartCoroutine(Bullet());
-            shootLine.SetPosition(0, playerTransform.position);
-            if(Physics.Raycast(focus, new Vector3(0, 5), out gunShot, 100))
-            {
-                Debug.Log("Hit");
-                shootLine.SetPosition(1, gunShot.point);
-                var enemy = gunShot.collider.GetComponent<Health>();
-                if (enemy != null) enemy.DisableEnemy();
-            }
-            else
-            {
-                shootLine.SetPosition(1, focus + (new Vector3 (0, 5)* 100));
-            }
-        }
+  		// Update player direction.
+		faceMouse();
+		// Fire button is pressed.
+		if (Input.GetButton ("Fire1")) {
+			// For now, we are only shooting a gun, later we may be utilizing other types
+			// of weapons. So this may get replaced with a call to a function that determines
+			// which action to take.
+			fireGun ();
+		}
+    
     }
 
     public IEnumerator Bullet()
@@ -50,4 +41,34 @@ public class Movement : MonoBehaviour
         yield return gunTimeOut;
         shootLine.enabled = false;
     }
+
+	private void faceMouse() {
+		// Get the in-world mouse position using the screen mouse position.
+		Vector3 mousePosition = povCam.ScreenToWorldPoint(Input.mousePosition);
+		// The direction vector that the character should face.
+		Vector3 faceDirection = new Vector3(
+			mousePosition.x - playerTransform.position.x,
+			mousePosition.y - playerTransform.position.y,
+			0
+		);
+		// Make the player face the mouse.
+		playerTransform.up = faceDirection;
+
+	}
+
+	private void fireGun() {
+		RaycastHit gunShot;
+		Vector3 focus = povCam.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, 0));
+		StartCoroutine (Bullet ());
+		shootLine.SetPosition (0, playerTransform.position);
+		if (Physics.Raycast (focus, playerTransform.up, out gunShot, 100)) {
+			Debug.Log ("Hit");
+			shootLine.SetPosition (1, gunShot.point);
+			var enemy = gunShot.collider.GetComponent<Health> ();
+			if (enemy != null)
+				enemy.DisableEnemy ();
+		} else {
+			shootLine.SetPosition (1, focus + (playerTransform.up * 100));
+		}
+	}
 }
