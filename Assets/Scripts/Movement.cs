@@ -3,28 +3,28 @@ using System.Collections;
 
 public class Movement : MonoBehaviour
 {
-    public Transform playerTransform;
-    public Camera povCam;
-    public LineRenderer shootLine;
-    private WaitForSeconds gunTimeOut = new WaitForSeconds(0.5f);
+	public Transform playerTransform;
+	public Camera povCam;
+	public LineRenderer shootLine;
+	private WaitForSeconds gunTimeOut = new WaitForSeconds (0.5f);
 
-    // Use this for initialization
-    void Start()
-    {
-        shootLine = GetComponent<LineRenderer>();
-    }
+	// Use this for initialization
+	void Start ()
+	{
+		shootLine = GetComponent<LineRenderer> ();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Update position of player
-        var currentPosition = playerTransform.position;
-        currentPosition.x += Input.GetAxisRaw("Horizontal") * 5 * Time.deltaTime;
-        currentPosition.y += Input.GetAxisRaw("Vertical") * 5 * Time.deltaTime;
-        playerTransform.position = new Vector3(currentPosition.x, currentPosition.y);
+	// Update is called once per frame
+	void Update ()
+	{
+		//Update position of player
+		var currentPosition = playerTransform.position;
+		currentPosition.x += Input.GetAxisRaw ("Horizontal") * 5 * Time.deltaTime;
+		currentPosition.y += Input.GetAxisRaw ("Vertical") * 5 * Time.deltaTime;
+		playerTransform.position = new Vector3 (currentPosition.x, currentPosition.y);
 
-  		// Update player direction.
-		faceMouse();
+		// Update player direction.
+		faceMouse ();
 		// Fire button is pressed.
 		if (Input.GetButton ("Fire1")) {
 			// For now, we are only shooting a gun, later we may be utilizing other types
@@ -33,30 +33,30 @@ public class Movement : MonoBehaviour
 			fireGun ();
 		}
     
-    }
+	}
 
-    public IEnumerator Bullet()
-    {
-        shootLine.enabled = true;
-        yield return gunTimeOut;
-        shootLine.enabled = false;
-    }
+	public IEnumerator Bullet ()
+	{
+		shootLine.enabled = true;
+		yield return gunTimeOut;
+		shootLine.enabled = false;
+	}
 
-	private void faceMouse() {
+	private void faceMouse ()
+	{
 		// Get the in-world mouse position using the screen mouse position.
-		Vector3 mousePosition = povCam.ScreenToWorldPoint(Input.mousePosition);
-		// The direction vector that the character should face.
-		Vector3 faceDirection = new Vector3(
+		Vector3 mousePosition = povCam.ScreenToWorldPoint (Input.mousePosition);
+		// The direction vector between the character and the mouse.
+		playerTransform.up = new Vector3 (
 			mousePosition.x - playerTransform.position.x,
 			mousePosition.y - playerTransform.position.y,
 			0
 		);
-		// Make the player face the mouse.
-		playerTransform.up = faceDirection;
 
 	}
 
-	private void fireGun() {
+	private void fireGun ()
+	{
 		RaycastHit gunShot;
 		Vector3 focus = povCam.ViewportToWorldPoint (new Vector3 (0.5f, 0.5f, 0));
 		StartCoroutine (Bullet ());
