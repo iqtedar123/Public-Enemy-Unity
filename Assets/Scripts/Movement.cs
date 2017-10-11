@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -33,7 +35,8 @@ public class Movement : MonoBehaviour
             // which action to take.
             fireGun();
         }
-
+        //Call the gameover function here.
+        isGameOver();
     }
 
     public IEnumerator Bullet()
@@ -72,6 +75,23 @@ public class Movement : MonoBehaviour
         else
         {
             shootLine.SetPosition(1, focus + (playerTransform.up * 100));
+        }
+    }
+
+    private void isGameOver()
+    {
+        //TODO Add condition to check if health is 0. 
+        //TODO Determine if game is over when all enemies are dead or if the end of level is reached. 
+        GameObject[] waypointArray = GameObject.FindGameObjectsWithTag("Enemy");
+        if (waypointArray.Length == 0)
+        {
+            Debug.Log("No more enemies!");
+            SceneManager.LoadScene("Game_Over");
+            Debug.Log("Loaded game over");
+        }
+        else
+        {
+            Debug.Log("Not over");
         }
     }
 }
