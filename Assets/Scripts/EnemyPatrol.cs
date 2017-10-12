@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-	// Speed and direction.
-	public float velocity = 3f;
-	// Move accross 'movementPlane'. Can be 'x' or 'y'.
-	public char movementPlane = 'x';
-	public float maxDistance = 100;
-
+	EnemyState enemyState;
 	Vector2 initialPos;
 	Vector2 curPos;
 
 	// Use this for initialization
 	void Start ()
 	{
+		enemyState = gameObject.GetComponent<EnemyState> ();
 		initialPos = transform.position;
 		faceCorrectDirection (initialPos);
 	}
@@ -23,12 +19,14 @@ public class EnemyPatrol : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		updatePos ();
+		if (enemyState.getPatrolMode ()) {
+			updatePos ();
+		}
 	}
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		if (col.gameObject.CompareTag ("Wall")) {
+		if (enemyState.getPatrolMode () && col.gameObject.CompareTag ("Wall")) {
 			changeDirection ();
 		}
 	}
@@ -36,13 +34,13 @@ public class EnemyPatrol : MonoBehaviour
 	private void updatePos ()
 	{
 		curPos = transform.position;
-		if (movementPlane == 'x') {
-			curPos.x += velocity * Time.deltaTime;
+		if (enemyState.movementPlane == 'x') {
+			curPos.x += enemyState.velocity * Time.deltaTime;
 		} else {
-			curPos.y += velocity * Time.deltaTime;
+			curPos.y += enemyState.velocity * Time.deltaTime;
 		}
 
-		if (Vector2.Distance (curPos, initialPos) <= maxDistance) {
+		if (Vector2.Distance (curPos, initialPos) <= enemyState.movementDistance) {
 			transform.position = curPos;
 		} else {
 			changeDirection ();
@@ -54,17 +52,17 @@ public class EnemyPatrol : MonoBehaviour
 	// Move in the opposite direction.
 	private void changeDirection ()
 	{
-		velocity *= -1;
+		enemyState.velocity *= -1;
 		faceCorrectDirection (curPos);
 	}
 
 	// Face in the direction of movement.
 	private void faceCorrectDirection (Vector2 curPosition)
 	{
-		if (movementPlane == 'x') {
-			transform.up = new Vector2 (curPosition.x + velocity * 100, 0);
+		if (enemyState.movementPlane == 'x') {
+			transform.up = new Vector2 (curPosition.x + enemyState.velocity * 100, 0);
 		} else {
-			transform.up = new Vector2 (0, curPosition.y + velocity * 100);
+			transform.up = new Vector2 (0, curPosition.y + enemyState.velocity * 100);
 		}
 	}
 }
