@@ -9,11 +9,22 @@ public class Movement : MonoBehaviour
     public Camera povCam;
     public LineRenderer shootLine;
     private WaitForSeconds gunTimeOut = new WaitForSeconds(0.5f);
-
+    public static ArrayList enemiesList = new ArrayList();
     // Use this for initialization
     void Start()
     {
         shootLine = GetComponent<LineRenderer>();
+        GameObject[] waypointArray = GameObject.FindGameObjectsWithTag("Enemy");
+        if(waypointArray.Length > 0)
+        {
+            int i = 0;
+            while (i < waypointArray.Length)
+            {
+                enemiesList.Add(waypointArray[i]);
+                i++;
+            }
+        }
+        
     }
 
     // Update is called once per frame
@@ -35,8 +46,6 @@ public class Movement : MonoBehaviour
             // which action to take.
             fireGun();
         }
-        //Call the gameover function here.
-        isGameOver();
     }
 
     public IEnumerator Bullet()
@@ -78,20 +87,5 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void isGameOver()
-    {
-        //TODO Add condition to check if health is 0. 
-        //TODO Determine if game is over when all enemies are dead or if the end of level is reached. 
-        GameObject[] waypointArray = GameObject.FindGameObjectsWithTag("Enemy");
-        if (waypointArray.Length == 0)
-        {
-            Debug.Log("No more enemies!");
-            SceneManager.LoadScene("Game_Over");
-            Debug.Log("Loaded game over");
-        }
-        else
-        {
-            Debug.Log("Not over");
-        }
-    }
+    
 }
