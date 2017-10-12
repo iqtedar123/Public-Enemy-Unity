@@ -7,10 +7,11 @@ public class Health : MonoBehaviour {
 
     public int health = 120;
     public int damageRate = 20;
+    
     public void DisableEnemy()
     {
         gameObject.SetActive(false);
-        Movement.enemiesList.Remove(gameObject);
+        Movement.enemiesCount= Movement.enemiesCount-1;
         isGameOver();
     }
 
@@ -23,27 +24,16 @@ public class Health : MonoBehaviour {
     {
         //TODO Add condition to check if health is 0. 
         //TODO Determine if game is over when all enemies are dead or if the end of level is reached. 
-        if(Movement.enemiesList.Count <= 0)
+        
+        if (Movement.enemiesCount <= 0)
         {
-            //No more enemies
             Debug.Log("No more enemies!");
             SceneManager.LoadScene("Game_Over");
-            Debug.Log("Loaded game over");
+            //Debug.Log("Loaded game over");
         }
         else
         {
             Debug.Log("Not over");
         }
-        //GameObject[] waypointArray = GameObject.FindGameObjectsWithTag("Enemy");
-        //if (waypointArray.Length == 0)
-        //{
-        //    Debug.Log("No more enemies!");
-        //    SceneManager.LoadScene("Game_Over");
-        //    Debug.Log("Loaded game over");
-        //}
-        //else
-        //{
-        //    Debug.Log("Not over");
-        //}
     }
 }

@@ -9,22 +9,14 @@ public class Movement : MonoBehaviour
     public Camera povCam;
     public LineRenderer shootLine;
     private WaitForSeconds gunTimeOut = new WaitForSeconds(0.5f);
-    public static ArrayList enemiesList = new ArrayList();
+    public static GameObject[] waypointArray;
+    public static int enemiesCount = 0;
     // Use this for initialization
     void Start()
     {
         shootLine = GetComponent<LineRenderer>();
-        GameObject[] waypointArray = GameObject.FindGameObjectsWithTag("Enemy");
-        if(waypointArray.Length > 0)
-        {
-            int i = 0;
-            while (i < waypointArray.Length)
-            {
-                enemiesList.Add(waypointArray[i]);
-                i++;
-            }
-        }
-        
+        waypointArray = GameObject.FindGameObjectsWithTag("Enemy");
+        Movement.enemiesCount = waypointArray.Length;
     }
 
     // Update is called once per frame
