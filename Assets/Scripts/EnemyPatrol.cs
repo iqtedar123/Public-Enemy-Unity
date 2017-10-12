@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour {
+public class EnemyPatrol : MonoBehaviour
+{
 	// Speed and direction.
 	public float velocity = 3f;
 	// Move accross 'movementPlane'. Can be 'x' or 'y'.
@@ -13,23 +14,27 @@ public class EnemyPatrol : MonoBehaviour {
 	Vector2 curPos;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		initialPos = transform.position;
 		faceCorrectDirection (initialPos);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		updatePos ();
 	}
 
-	void OnCollisionEnter2D(Collision2D col) {
-		if (col.gameObject.CompareTag("Wall")) {
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		if (col.gameObject.CompareTag ("Wall")) {
 			changeDirection ();
 		}
 	}
 
-	private void updatePos() {
+	private void updatePos ()
+	{
 		curPos = transform.position;
 		if (movementPlane == 'x') {
 			curPos.x += velocity * Time.deltaTime;
@@ -37,27 +42,29 @@ public class EnemyPatrol : MonoBehaviour {
 			curPos.y += velocity * Time.deltaTime;
 		}
 
-		if (Vector2.Distance(curPos, initialPos) <= maxDistance) {
+		if (Vector2.Distance (curPos, initialPos) <= maxDistance) {
 			transform.position = curPos;
 		} else {
-			changeDirection();
+			changeDirection ();
 		}
 			
 		
 	}
 
-	private void changeDirection() {
+	// Move in the opposite direction.
+	private void changeDirection ()
+	{
 		velocity *= -1;
 		faceCorrectDirection (curPos);
 	}
 
-	private void faceCorrectDirection(Vector2 curPosition) {
-		Vector2 lookAtVector;
+	// Face in the direction of movement.
+	private void faceCorrectDirection (Vector2 curPosition)
+	{
 		if (movementPlane == 'x') {
-			lookAtVector = new Vector2 (curPosition.x + velocity * 100, 0);
+			transform.up = new Vector2 (curPosition.x + velocity * 100, 0);
 		} else {
-			lookAtVector = new Vector2 (0, curPosition.y + velocity * 100);
+			transform.up = new Vector2 (0, curPosition.y + velocity * 100);
 		}
-		transform.up = lookAtVector;
 	}
 }
