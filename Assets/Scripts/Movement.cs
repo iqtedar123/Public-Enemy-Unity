@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -7,11 +9,14 @@ public class Movement : MonoBehaviour
     public Camera povCam;
     public LineRenderer shootLine;
     private WaitForSeconds gunTimeOut = new WaitForSeconds(0.5f);
-
+    public static GameObject[] waypointArray;
+    public static int enemiesCount = 0;
     // Use this for initialization
     void Start()
     {
         shootLine = GetComponent<LineRenderer>();
+        waypointArray = GameObject.FindGameObjectsWithTag("Enemy");
+        Movement.enemiesCount = waypointArray.Length;
     }
 
     // Update is called once per frame
@@ -33,7 +38,6 @@ public class Movement : MonoBehaviour
             // which action to take.
             fireGun();
         }
-
     }
 
     public IEnumerator Bullet()
@@ -74,4 +78,6 @@ public class Movement : MonoBehaviour
             shootLine.SetPosition(1, focus + (playerTransform.up * 100));
         }
     }
+
+    
 }
