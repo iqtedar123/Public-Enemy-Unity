@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
     private void playerDied()
     {
         Debug.Log("Player Died!");
+        UIManager.gameOverReason = "You Died!";
         SceneManager.LoadScene("Game_Over");
         //Debug.Log("Loaded game over");
     }
