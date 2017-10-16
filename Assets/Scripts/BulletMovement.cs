@@ -54,6 +54,9 @@ public class BulletMovement : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
+		if (col.gameObject.tag == "Bullet") {
+			return;
+		}
         if (playerFired == true)
         {
             if (col.gameObject.tag == "Enemy")
