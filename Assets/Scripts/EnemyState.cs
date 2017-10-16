@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyState : MonoBehaviour
 {
 
-	public int health = 120;
+	public int health = 99999999;
 	public int damageRate = 20;
 
 	// Speed and direction.

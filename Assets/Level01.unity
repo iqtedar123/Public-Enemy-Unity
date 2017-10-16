@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 559858729}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -843,6 +843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 559858727}
+  bullet: {fileID: 1826933365242596, guid: 572905339e4044700a387ad3865d2f83, type: 2}
+  spawnInterval: 0.25
 --- !u!1 &863657830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 559858727}
+  bullet: {fileID: 0}
+  spawnInterval: 0
 --- !u!114 &2006087912
 MonoBehaviour:
   m_ObjectHideFlags: 0
