@@ -56,8 +56,8 @@ public class BulletMovement : MonoBehaviour
             {
                 //Collides with player. Player takes damage.
                 //TODO Uncomment once implemented. 
-                //var playerHealth = col.gameObject.GetComponent<Health>();
-                //playerHealth.Damage();
+                var playerHealth = col.gameObject.GetComponent<PlayerHealth>();
+                playerHealth.Damage();
             }
         }
         Destroy(gameObject);

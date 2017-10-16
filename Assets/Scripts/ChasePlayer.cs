@@ -53,7 +53,7 @@ public class ChasePlayer : MonoBehaviour
     }
     private void fireGun()
     {
-        Debug.Log("inside fire gun function");
+       // Debug.Log("inside fire gun function");
         if (bullet != null && spawnInterval != 0.0)
         {
             if (Time.time - lastBulletTime >= spawnInterval)
