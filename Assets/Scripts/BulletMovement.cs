@@ -25,8 +25,6 @@ public class BulletMovement : MonoBehaviour
 
 	void Update ()
 	{
-        if (playerFired == true)
-        {
             transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime);
             if (transform.position.x > maxX + size.x / 2
                 || transform.position.x < minX - size.x / 2
@@ -35,21 +33,6 @@ public class BulletMovement : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }else if(playerFired == false)
-        {
-            //Enemy fired bullet. 
-            //Move bullet towards player. 
-            var direction = new Vector3(1, 0, 0);
-           // direction = -direction;
-            transform.Translate(direction * speed * Time.deltaTime);
-            if (transform.position.x > maxX + size.x / 2
-                || transform.position.x < minX - size.x / 2
-                || transform.position.y > maxY + size.y / 2
-                || transform.position.y < minY - size.y / 2)
-            {
-                Destroy(gameObject);
-            }
-        }
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
