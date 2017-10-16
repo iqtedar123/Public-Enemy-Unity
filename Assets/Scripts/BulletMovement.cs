@@ -39,7 +39,16 @@ public class BulletMovement : MonoBehaviour
         {
             //Enemy fired bullet. 
             //Move bullet towards player. 
-
+            var direction = new Vector3(1, 0, 0);
+           // direction = -direction;
+            transform.Translate(direction * speed * Time.deltaTime);
+            if (transform.position.x > maxX + size.x / 2
+                || transform.position.x < minX - size.x / 2
+                || transform.position.y > maxY + size.y / 2
+                || transform.position.y < minY - size.y / 2)
+            {
+                Destroy(gameObject);
+            }
         }
 	}
 
