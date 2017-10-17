@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour
 {
 
-	public int health = 200;
+	public int health = 100;
 	public int damageRate = 20;
 
 
