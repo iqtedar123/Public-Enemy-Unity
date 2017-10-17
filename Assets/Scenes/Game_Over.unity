@@ -108,6 +108,80 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &140605507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 140605508}
+  - component: {fileID: 140605510}
+  - component: {fileID: 140605509}
+  m_Layer: 5
+  m_Name: GameUpdateText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &140605508
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 140605507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1901359598}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 8.8525, y: -74.6}
+  m_SizeDelta: {x: 177.69, y: 98.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &140605509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 140605507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: FSFD
+--- !u!222 &140605510
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 140605507}
 --- !u!1 &154046866
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,8 +194,7 @@ GameObject:
   - component: {fileID: 154046869}
   - component: {fileID: 154046868}
   - component: {fileID: 154046867}
-  - component: {fileID: 154046872}
-  - component: {fileID: 154046873}
+  - component: {fileID: 154046874}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -199,7 +272,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &154046872
+--- !u!114 &154046874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -210,17 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70429a5e8212924487e71a81d4b064a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &154046873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 154046866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70429a5e8212924487e71a81d4b064a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  gameOverReasonText: {fileID: 140605509}
+  retryButton: {fileID: 464809974}
 --- !u!1 &464809972
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,8 +361,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154046872}
-        m_MethodName: openLevel0
+      - m_Target: {fileID: 11500000, guid: d70429a5e8212924487e71a81d4b064a, type: 3}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -354,6 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70429a5e8212924487e71a81d4b064a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverReasonText: {fileID: 0}
+  retryButton: {fileID: 0}
 --- !u!1 &1174649125
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +431,7 @@ GameObject:
   - component: {fileID: 1174649128}
   - component: {fileID: 1174649127}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,6 +650,7 @@ RectTransform:
   - {fileID: 1308296866}
   - {fileID: 1174649126}
   - {fileID: 464809973}
+  - {fileID: 140605508}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

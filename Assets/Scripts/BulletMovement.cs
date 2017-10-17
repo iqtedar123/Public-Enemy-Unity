@@ -12,7 +12,7 @@ public class BulletMovement : MonoBehaviour
 	private float minX;
 	private float minY;
 	private Vector3 size;
-
+    public static bool playerFired;
 	void Start ()
 	{
 		float cameraDistance = (transform.position - Camera.main.transform.position).z;
@@ -25,22 +25,42 @@ public class BulletMovement : MonoBehaviour
 
 	void Update ()
 	{
-		transform.Translate (new Vector3 (1, 0, 0) * speed * Time.deltaTime); 
-		if (transform.position.x > maxX + size.x / 2
-		    || transform.position.x < minX - size.x / 2
-		    || transform.position.y > maxY + size.y / 2
-		    || transform.position.y < minY - size.y / 2) {
-			Destroy (gameObject);
-		}
+            transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime);
+            if (transform.position.x > maxX + size.x / 2
+                || transform.position.x < minX - size.x / 2
+                || transform.position.y > maxY + size.y / 2
+                || transform.position.y < minY - size.y / 2)
+            {
+                Destroy(gameObject);
+            }
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "Enemy") {
-			var enemyHealth = col.gameObject.GetComponent<Health> ();
-			enemyHealth.Damage ();
+		if (col.gameObject.tag == "Bullet") {
+			return;
 		}
-		Destroy (gameObject);
-	}
+        if (playerFired == true)
+        {
+            if (col.gameObject.tag == "Enemy")
+            {
+                var enemyHealth = col.gameObject.GetComponent<Health>();
+                enemyHealth.Damage();
+            }
+
+        }
+        else
+        {
+            //Enemy fired the bullet. 
+            if (col.gameObject.tag == "Player")
+            {
+                //Collides with player. Player takes damage.
+                //TODO Uncomment once implemented. 
+                var playerHealth = col.gameObject.GetComponent<PlayerHealth>();
+                playerHealth.Damage();
+            }
+        }
+        Destroy(gameObject);
+    }
 
 }

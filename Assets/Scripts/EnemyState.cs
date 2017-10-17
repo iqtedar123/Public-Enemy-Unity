@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyState : MonoBehaviour
 {
 
-	public int health = 120;
+	public int health = 200;
 	public int damageRate = 20;
 
 	// Speed and direction.
@@ -20,23 +20,23 @@ public class EnemyState : MonoBehaviour
 	public float startChasingDistance = 5f;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 
 	}
-	
+
 	// Update is called once per frame
-	void Update ()
+	void Update()
 	{
-		
+
 	}
 
-	public bool getPatrolMode ()
+	public bool getPatrolMode()
 	{
 		return patrolMode;
 	}
 
-	public void setPatrolMode (bool value)
+	public void setPatrolMode(bool value)
 	{
 		patrolMode = value;
 	}

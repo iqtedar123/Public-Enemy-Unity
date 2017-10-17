@@ -7,9 +7,11 @@ public class ChasePlayer : MonoBehaviour
 	public Transform playerTransform;
 
 	EnemyState enemyState;
-
-	// Use this for initialization
-	void Start ()
+    public GameObject bullet;
+    private float lastBulletTime = 0f;
+    public float spawnInterval;
+    // Use this for initialization
+    void Start ()
 	{
 		enemyState = gameObject.GetComponent<EnemyState> ();
 	}
@@ -45,6 +47,24 @@ public class ChasePlayer : MonoBehaviour
 			playerTransform.position.x - transform.position.x,
 			playerTransform.position.y - transform.position.y
 		);
-	}
+        //sHOOT THE BUllet
+        fireGun();
 
+    }
+    private void fireGun()
+    {
+       // Debug.Log("inside fire gun function");
+        if (bullet != null && spawnInterval != 0.0)
+        {
+            if (Time.time - lastBulletTime >= spawnInterval)
+            {
+                lastBulletTime = Time.time;
+                BulletMovement.playerFired = false;
+                var bulletIns = Instantiate(bullet, transform.position, transform.rotation);
+                bulletIns.transform.Translate(new Vector3(0.303f, 0.738f, 0));
+                bulletIns.transform.Rotate(Vector3.forward * 90);
+				bulletIns.layer = LayerMask.NameToLayer ("Enemy");
+            }
+        }
+    }
 }
