@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour
+public class BulletPlayer : MonoBehaviour
 {
 
-	public float speed;
+	public static float speed;
+    public static float range;
+    public static float damage;
 
 	private float maxX;
 	private float maxY;
@@ -41,16 +43,12 @@ public class BulletMovement : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "Merchant") {
 			return;
-		}
-        //Enemy fired the bullet. 
-        if (col.gameObject.tag == "Player")
+		}        
+        if (col.gameObject.tag == "Enemy")
         {
-            //Collides with player. Player takes damage.
-            //TODO Uncomment once implemented. 
-            var playerHealth = col.gameObject.GetComponent<PlayerHealth>();
-            playerHealth.Damage();
-        }
-        
+            var enemyHealth = col.gameObject.GetComponent<Health>();
+            enemyHealth.Damage();
+        }        
         Destroy(gameObject);
     }
 

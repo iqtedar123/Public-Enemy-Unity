@@ -59,7 +59,6 @@ public class ChasePlayer : MonoBehaviour
             if (Time.time - lastBulletTime >= spawnInterval)
             {
                 lastBulletTime = Time.time;
-                BulletMovement.playerFired = false;
                 var bulletIns = Instantiate(bullet, transform.position, transform.rotation);
                 bulletIns.transform.Translate(new Vector3(0.303f, 0.738f, 0));
                 bulletIns.transform.Rotate(Vector3.forward * 90);
