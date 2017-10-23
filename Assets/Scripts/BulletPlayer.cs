@@ -6,15 +6,16 @@ public class BulletPlayer : MonoBehaviour
 {
 
 	public static float speed;
-    public static float range;
-    public static int damage;
+	public static float range;
+	public static int damage;
+	public static int miscLayer = 1 << 11;
 
 	private float maxX;
 	private float maxY;
 	private float minX;
 	private float minY;
 	private Vector3 size;
-
+	private Vector3 startPos;
 
 	void Start ()
 	{
@@ -24,32 +25,33 @@ public class BulletPlayer : MonoBehaviour
 		minX = Camera.main.ViewportToWorldPoint (new Vector3 (0, 0, cameraDistance)).x;
 		minY = Camera.main.ViewportToWorldPoint (new Vector3 (0, 0, cameraDistance)).y;
 		size = GetComponent<Renderer> ().bounds.size;
+		startPos = transform.position - (transform.right * 0.738f);
+
+		// Run update before bullet is drawn
+		this.Update ();
 	}
 
 	void Update ()
 	{
-            transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime);
+		transform.Translate (new Vector3 (1, 0, 0) * speed * Time.deltaTime);
 
-            if (transform.position.x > maxX + size.x / 2
-                || transform.position.x < minX - size.x / 2
-                || transform.position.y > maxY + size.y / 2
-                || transform.position.y < minY - size.y / 2)
-            {
-                Destroy(gameObject);
-            }
-	}
-
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.gameObject.tag == "Bullet" || col.gameObject.tag == "Merchant") {
+		if (transform.position.x > maxX + size.x / 2
+		    || transform.position.x < minX - size.x / 2
+		    || transform.position.y > maxY + size.y / 2
+		    || transform.position.y < minY - size.y / 2) {
+			Destroy (gameObject);
 			return;
-		}        
-        if (col.gameObject.tag == "Enemy")
-        {
-            var enemyHealth = col.gameObject.GetComponent<Health>();
-            enemyHealth.Damage(damage);
-        }        
-        Destroy(gameObject);
-    }
+		}
+
+		var layerMask = ~((1 << gameObject.layer) | miscLayer);
+		RaycastHit2D hitInfo = Physics2D.Linecast (startPos, transform.position, layerMask);
+		if (hitInfo.collider != null) {
+			if (hitInfo.collider.gameObject.tag == "Enemy") {
+				var enemyHealth = hitInfo.collider.gameObject.GetComponent<Health> ();
+				enemyHealth.Damage (damage);
+			}
+			Destroy (gameObject);
+		}
+	}
 
 }
