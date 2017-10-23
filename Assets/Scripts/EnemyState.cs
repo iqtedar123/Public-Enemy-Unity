@@ -14,6 +14,8 @@ public class EnemyState : MonoBehaviour
 	public char movementPlane = 'x';
 	public float movementDistance = 100f;
 
+	public float viewAngleHalf = 22.5f;
+
 	private bool patrolMode = true;
 
 	// How close the player must be before getting chased.
