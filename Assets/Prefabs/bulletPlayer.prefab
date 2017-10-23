@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4490346527072996}
   - component: {fileID: 212957475577365678}
-  - component: {fileID: 114004395079151252}
   - component: {fileID: 50327632038419422}
   - component: {fileID: 60625637508252292}
+  - component: {fileID: 114072507278962472}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: bulletPlayer
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ PolygonCollider2D:
       - {x: -0.02, y: -0.01}
       - {x: 0.02, y: -0.01}
       - {x: 0.02, y: 0.01}
---- !u!114 &114004395079151252
+--- !u!114 &114072507278962472
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -99,10 +99,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826933365242596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c561e4c7cda44049b1a016c7fe2342, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c368e8d323142c44a7f23ab9b98f7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!212 &212957475577365678
 SpriteRenderer:
   m_ObjectHideFlags: 1
