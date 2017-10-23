@@ -19,12 +19,9 @@ public class ChasePlayer : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (enemyState.getPatrolMode () && shouldStartChasing ()) {
-			enemyState.setPatrolMode (false);
-		}
-		if (enemyState.getPatrolMode () == false) {
-			chase ();
-		}
+		if (enemyState.getPatrolMode () && shouldStartChasing ()) enemyState.setPatrolMode(false);
+        if (enemyState.getPatrolMode () == false) chase();
+		
 			
 	}
 

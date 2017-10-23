@@ -17,7 +17,6 @@ public class MerchantController : MonoBehaviour
     public void PurchaseMinimap()
     {
         player.purchasedMinimap = true;
-
     }
 
     void OpenWeaponShop()
