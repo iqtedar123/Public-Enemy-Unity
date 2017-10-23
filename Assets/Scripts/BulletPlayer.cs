@@ -7,7 +7,7 @@ public class BulletPlayer : MonoBehaviour
 
 	public static float speed;
     public static float range;
-    public static float damage;
+    public static int damage;
 
 	private float maxX;
 	private float maxY;
@@ -47,7 +47,7 @@ public class BulletPlayer : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             var enemyHealth = col.gameObject.GetComponent<Health>();
-            enemyHealth.Damage();
+            enemyHealth.Damage(damage);
         }        
         Destroy(gameObject);
     }

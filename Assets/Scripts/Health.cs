@@ -19,9 +19,9 @@ public class Health : MonoBehaviour
 		isGameOver ();
 	}
 
-	public void Damage ()
+	public void Damage (int damage)
 	{
-		enemyState.health -= enemyState.damageRate;
+        enemyState.health -= damage;
 		if (enemyState.health <= 0)
 			DisableEnemy ();
 	}
