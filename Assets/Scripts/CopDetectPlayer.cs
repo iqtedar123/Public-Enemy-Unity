@@ -63,7 +63,7 @@ public class CopDetectPlayer : MonoBehaviour
 			new Vector2 (-x, y),
 			new Vector2 (x, y)
 		};
-		mesh.triangles = new int[] { 0, 1, 2 };
+		mesh.triangles = new int[] { 0, 1, 2, 2, 1, 0 };
 
 	}
 }
