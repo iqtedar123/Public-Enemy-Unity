@@ -21,6 +21,12 @@ public class EnemyState : MonoBehaviour
 	// How close the player must be before getting chased.
 	public float startChasingDistance = 5f;
 
+	public float stopChasingDistance = 10f;
+
+	public bool shouldChangeDirection = false;
+
+	public float chaseTime = 5f;
+
 	// Use this for initialization
 	void Start()
 	{
