@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
 	public Button startGameButton;
 	public Button settingsButton;
 	public Button exitToMainButton;
+	public Button skipCutsceneLevel1;
 	public Text statusText;
 	public float statusTextDuration = 5; //Seconds to read the text
 	// Use this for initialization
@@ -34,6 +35,11 @@ public class UIManager : MonoBehaviour {
 		{
 			Button exitButton = exitToMainButton.GetComponent<Button>();
 			exitButton.onClick.AddListener(openMainMenu);
+		}
+		if(skipCutsceneLevel1 != null)
+		{
+			Button skipCutsceneBtn = skipCutsceneLevel1.GetComponent<Button>();
+			skipCutsceneBtn.onClick.AddListener(skipCutscene);
 		}
 	}
 	
@@ -59,7 +65,7 @@ public class UIManager : MonoBehaviour {
 	{
 		//Opens level when button is pressed in start menu. 
 		//TODO Change this later. 
-		SceneManager.LoadScene("Level01");
+		SceneManager.LoadScene("level1_cutscene");
 	}
 	public void openMainMenu()
 	{
@@ -78,5 +84,9 @@ public class UIManager : MonoBehaviour {
 	public void HideStatusText()
 	{
 		statusText.text = "";
+	}
+	public void skipCutscene()
+	{
+		SceneManager.LoadScene("Level01");
 	}
 }
