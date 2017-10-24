@@ -15,7 +15,7 @@ public class EnemyPatrol : MonoBehaviour
 		initialPos = transform.position;
 		faceCorrectDirection (initialPos);
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
 	{
@@ -28,6 +28,8 @@ public class EnemyPatrol : MonoBehaviour
 	{
 		if (enemyState.getPatrolMode () && col.gameObject.CompareTag ("Wall")) {
 			changeDirection ();
+		} else {
+			enemyState.shouldChangeDirection = true;
 		}
 	}
 
@@ -40,13 +42,14 @@ public class EnemyPatrol : MonoBehaviour
 			curPos.y += enemyState.velocity * Time.deltaTime;
 		}
 
-		if (Vector2.Distance (curPos, initialPos) <= enemyState.movementDistance) {
+		if (Vector2.Distance (curPos, initialPos) <= enemyState.movementDistance && enemyState.shouldChangeDirection == false) {
 			transform.position = curPos;
 		} else {
 			changeDirection ();
+			enemyState.shouldChangeDirection = false;
 		}
-			
-		
+
+
 	}
 
 	// Move in the opposite direction.
@@ -60,9 +63,17 @@ public class EnemyPatrol : MonoBehaviour
 	private void faceCorrectDirection (Vector2 curPosition)
 	{
 		if (enemyState.movementPlane == 'x') {
-			transform.up = new Vector2 (curPosition.x + enemyState.velocity * 100, 0);
+			if (enemyState.velocity <= 0) {
+				transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 90));
+			} else {
+				transform.rotation = Quaternion.Euler (new Vector3 (0, 0, -90));
+			}
 		} else {
-			transform.up = new Vector2 (0, curPosition.y + enemyState.velocity * 100);
+			if (enemyState.velocity <= 0) {
+				transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 180));
+			} else {
+				transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 0));
+			}
 		}
 	}
 }
