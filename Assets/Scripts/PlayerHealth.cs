@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player health: " + playerState.health);
 		if (hpBar != null) {
 			hpBar.value = playerState.health;
-			if (playerState.health < 100 && playerState.health >= 75) {
+			if (playerState.health <= 100 && playerState.health >= 75) {
 				hpBar.fillRect.GetComponent<Image>().color = Color.green;
 			}else if(playerState.health< 75 && playerState.health >= 50)
 			{
