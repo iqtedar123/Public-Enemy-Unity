@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     PlayerState playerState;
-    public Text playerHealthLabel;
+	public Slider hpBar;
     void Start()
     {
         playerState = gameObject.GetComponent<PlayerState>();
@@ -23,7 +23,19 @@ public class PlayerHealth : MonoBehaviour
     {
         playerState.health -= playerState.damageRate;
         Debug.Log("Player health: " + playerState.health);
-        playerHealthLabel.text = "HP: " + playerState.health;
+		if (hpBar != null) {
+			hpBar.value = playerState.health;
+			if (playerState.health < 100 && playerState.health >= 75) {
+				hpBar.fillRect.GetComponent<Image>().color = Color.green;
+			}else if(playerState.health< 75 && playerState.health >= 50)
+			{
+				hpBar.fillRect.GetComponent<Image>().color = Color.yellow;
+			}
+			else
+			{
+				hpBar.fillRect.GetComponent<Image>().color = Color.red;
+			}
+		}
         if (playerState.health <= 0)
         {
             DisablePlayer();
