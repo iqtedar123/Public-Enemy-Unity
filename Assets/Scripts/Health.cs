@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 	EnemyState enemyState;
+    public Text currency;
 
 	void Start ()
 	{
@@ -21,10 +23,14 @@ public class Health : MonoBehaviour
 
 	public void Damage (int damage)
 	{
+        var currentCurrent = System.Int32.Parse(currency.text);
         enemyState.health -= damage;
 		if (enemyState.health <= 0)
-			DisableEnemy ();
-	}
+        {
+            DisableEnemy();
+            currency.text = (currentCurrent + enemyState.initialHealth).ToString();
+        }
+    }
 
 	private void isGameOver ()
 	{

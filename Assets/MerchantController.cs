@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MerchantController : MonoBehaviour
 {
     public GameObject shopCanvas;
     public Movement player;
     public GameObject minimap;
+    public Text currency;
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -16,7 +18,20 @@ public class MerchantController : MonoBehaviour
 
     public void PurchaseMinimap()
     {
-        player.purchasedMinimap = true;
+        if (!player.purchasedMinimap && PurcahseItem(50))
+            player.purchasedMinimap = true;          
+    }
+
+    public bool PurcahseItem(int value)
+    {
+        var currentCurrency = System.Int32.Parse(currency.text);
+        if(currentCurrency >= value)
+        {
+            currency.text = (currentCurrency - value).ToString();
+            return true;
+        }
+        return false;
+
     }
 
     void OpenWeaponShop()

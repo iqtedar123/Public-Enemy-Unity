@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyState : MonoBehaviour
 {
-
+    public int initialHealth = 200;
 	public int health = 200;
 	public int damageRate = 20;
 

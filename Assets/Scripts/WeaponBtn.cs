@@ -25,7 +25,8 @@ public class WeaponBtn : MonoBehaviour
 
     public void OnClickWeapon()
     {
-        //TODO: Add currency check
-        playerShooting.currentWeapon = weaponNumber;
+        var merchant = Object.FindObjectOfType<MerchantController>();
+        if (merchant.PurcahseItem(playerShooting.availableWeapons[weaponNumber].cost))
+            playerShooting.currentWeapon = weaponNumber;        
     }
 }
