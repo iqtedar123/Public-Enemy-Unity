@@ -18,11 +18,11 @@ public class MerchantController : MonoBehaviour
 
     public void PurchaseMinimap()
     {
-        if (!player.purchasedMinimap && PurcahseItem(50))
+        if (!player.purchasedMinimap && PurchaseItem(50))
             player.purchasedMinimap = true;          
     }
 
-    public bool PurcahseItem(int value)
+    public bool PurchaseItem(int value)
     {
         var currentCurrency = System.Int32.Parse(currency.text);
         if(currentCurrency >= value)

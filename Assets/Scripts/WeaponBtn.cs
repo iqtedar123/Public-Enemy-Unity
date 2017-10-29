@@ -26,7 +26,7 @@ public class WeaponBtn : MonoBehaviour
     public void OnClickWeapon()
     {
         var merchant = Object.FindObjectOfType<MerchantController>();
-        if (merchant.PurcahseItem(playerShooting.availableWeapons[weaponNumber].cost))
+        if (merchant.PurchaseItem(playerShooting.availableWeapons[weaponNumber].cost))
             playerShooting.currentWeapon = weaponNumber;        
     }
 }
