@@ -15,5 +15,7 @@ public class WeaponObj : ScriptableObject{
     public float fireRate;
     public int damage;
     public float range;
+    public int clipCapacity;
+    public int ammoCapacity;
     	
 }

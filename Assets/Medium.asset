@@ -18,3 +18,5 @@ MonoBehaviour:
   fireRate: 0.5
   damage: 30
   range: 100
+  clipCapacity: 10
+  ammoCapacity: 100

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
 
 	public static GameObject[] waypointArray;
 	public static int enemiesCount = 0;
+
 
 	public float spawnInterval;
 	public float speed;
@@ -18,13 +20,21 @@ public class Movement : MonoBehaviour
 
     public WeaponObj[] availableWeapons;
     public int currentWeapon = 0;
+    public int currentClip;
+    public int gunAmmo;
     public bool purchasedMinimap = false;
+    public Text ammoText;
+    public Text gunCapacityText;
 
 	// Use this for initialization
 	void Start ()
 	{
 		waypointArray = GameObject.FindGameObjectsWithTag ("Enemy");
 		Movement.enemiesCount = waypointArray.Length;
+        currentClip = availableWeapons[currentWeapon].clipCapacity;
+        gunAmmo = availableWeapons[currentWeapon].ammoCapacity;
+        ammoText.text = currentClip.ToString();
+        gunCapacityText.text = gunAmmo.ToString();
 	}
 
 	// Update is called once per frame
@@ -57,16 +67,34 @@ public class Movement : MonoBehaviour
 			0
 		);
 	}
+    public IEnumerator ReloadGun()
+    {
+        yield return new WaitForSeconds(1);
+        if(gunAmmo < availableWeapons[currentWeapon].clipCapacity)
+        {
+            currentClip = gunAmmo;
+            gunAmmo = 0;
+        } else
+        {
+            currentClip = availableWeapons[currentWeapon].clipCapacity;
+            gunAmmo -= currentClip;
+        }
+        ammoText.text = currentClip.ToString();
+        gunCapacityText.text = gunAmmo.ToString();
+    }
 
 	private void fireGun ()
 	{
         var currentGun = availableWeapons[currentWeapon];
-		if (Time.time - lastBulletTime >= currentGun.fireRate) {
+		if (Time.time - lastBulletTime >= currentGun.fireRate && currentClip > 0) {
 			lastBulletTime = Time.time;
+            currentClip -= 1;
+            ammoText.text = currentClip.ToString();
             BulletPlayer.speed = currentGun.speed;
             BulletPlayer.damage = currentGun.damage;
             BulletPlayer.range = currentGun.range;
-			var bulletIns = Instantiate (bullet, transform.position, transform.rotation);
+            if(currentClip == 0) StartCoroutine(ReloadGun());
+            var bulletIns = Instantiate (bullet, transform.position, transform.rotation);
 			bulletIns.transform.Translate (new Vector3 (0.303f, 0.738f, 0)); 
 			bulletIns.transform.Rotate (Vector3.forward * 90);
 			bulletIns.layer = LayerMask.NameToLayer ("Player");
