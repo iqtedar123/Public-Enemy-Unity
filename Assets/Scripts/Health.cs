@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
 		if (enemyState.health <= 0)
         {
             DisableEnemy();
-            currency.text = (currentCurrent + enemyState.initialHealth).ToString();
+            currency.text = (currentCurrent + enemyState.pointsForKill).ToString();
         }
     }
 
