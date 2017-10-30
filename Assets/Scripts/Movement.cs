@@ -54,6 +54,11 @@ public class Movement : MonoBehaviour
 			// TODO: Different functions can be called based on weapon type. For now, just gun.
 			fireGun ();
 		}
+        if (Input.GetKeyDown(KeyCode.R)){
+            gunAmmo += currentClip;
+            currentClip = 0;
+            StartCoroutine(ReloadGun());
+        }
 	}
 
 	private void faceMouse ()
