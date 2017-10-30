@@ -27,6 +27,8 @@ public class EnemyState : MonoBehaviour
 
 	public float chaseTime = 5f;
 
+	public float escapeCopSeconds = 0.5f;
+
 	// Use this for initialization
 	void Start()
 	{

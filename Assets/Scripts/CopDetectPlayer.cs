@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.PostProcessing;
 
 public class CopDetectPlayer : MonoBehaviour
 {
@@ -9,13 +10,18 @@ public class CopDetectPlayer : MonoBehaviour
 	public GameObject player;
 
 	EnemyState enemyState;
+	PostProcessingBehaviour ppBehaviour;
 
 	private MeshFilter mf;
+	private float caughtTimer = 0;
+	private float initVigIntensity;
 
 	// Use this for initialization
 	void Start ()
 	{
 		enemyState = gameObject.GetComponent<EnemyState> ();
+		ppBehaviour = Camera.main.GetComponent<PostProcessingBehaviour>();
+		initVigIntensity = ppBehaviour.profile.vignette.settings.intensity;
 		drawFieldOfView ();
 	}
 	
@@ -37,12 +43,18 @@ public class CopDetectPlayer : MonoBehaviour
 			if (hit.collider && hit.transform.CompareTag ("Player")) {
 				Debug.DrawRay (transform.position, rayDirection);
 				Debug.Log ("I'm seeing the player");
-				Debug.Log ("The cops caught you!");
-				UIManager.gameOverReason = "The cops caught you!";
-				SceneManager.LoadScene ("Game_Over");
-
+				caughtTimer += Time.deltaTime;
+				changeVignette ();
+				if (caughtTimer >= enemyState.escapeCopSeconds) {
+					catchPlayer ();
+				}
+			} else if (caughtTimer > 0) {
+				decrementCaughtTimer ();
 			}
+		} else if (caughtTimer > 0) {
+			decrementCaughtTimer ();
 		}
+//		Debug.Log (caughtTimer);
 	}
 
 	private void drawFieldOfView ()
@@ -65,5 +77,29 @@ public class CopDetectPlayer : MonoBehaviour
 		};
 		mesh.triangles = new int[] { 0, 1, 2, 2, 1, 0 };
 
+	}
+
+	private void decrementCaughtTimer() {
+		caughtTimer -= Time.deltaTime;
+		if (caughtTimer < 0) {
+			caughtTimer = 0;
+		}
+		changeVignette ();
+	}
+
+	private void changeVignette() {
+		var intensityDiff = 1 - initVigIntensity;
+		var settings = ppBehaviour.profile.vignette.settings;
+		settings.intensity = initVigIntensity + (caughtTimer / enemyState.escapeCopSeconds) * intensityDiff;
+		ppBehaviour.profile.vignette.settings = settings;
+	}
+
+	private void catchPlayer(){
+		UIManager.gameOverReason = "The cops caught you!";
+		SceneManager.LoadScene ("Game_Over");
+		// Reset vignette
+		var settings = ppBehaviour.profile.vignette.settings;
+		settings.intensity = initVigIntensity;
+		ppBehaviour.profile.vignette.settings = settings;
 	}
 }
