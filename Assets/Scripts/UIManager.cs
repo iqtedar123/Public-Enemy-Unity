@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
     public static string gameOverReason;
+	public static string gameOver = "GAME OVER";
     public Text gameOverReasonText;
+	public Text gameOverText;
     public Button retryButton;
 	public Button startGameButton;
 	public Button settingsButton;
@@ -51,6 +53,7 @@ public class UIManager : MonoBehaviour {
             if(gameOverReason != null)
             {
                 gameOverReasonText.text = gameOverReason;
+				gameOverText.text = gameOver;
             }
         }
 	}
