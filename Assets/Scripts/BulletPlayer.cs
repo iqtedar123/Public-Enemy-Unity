@@ -16,7 +16,7 @@ public class BulletPlayer : MonoBehaviour
 	private float minY;
 	private Vector3 size;
 	private Vector3 startPos;
-
+	public static AudioSource audioSrc;
 	void Start ()
 	{
 		float cameraDistance = (transform.position - Camera.main.transform.position).z;
@@ -49,6 +49,12 @@ public class BulletPlayer : MonoBehaviour
 			if (hitInfo.collider.gameObject.tag == "Enemy") {
 				var enemyHealth = hitInfo.collider.gameObject.GetComponent<Health> ();
 				enemyHealth.Damage (damage);
+				if(audioSrc != null)
+				{
+					//Enemy hurt sound effect has been set. 
+					//Play the Sound. 
+					audioSrc.Play();
+				}
 			}
 			Destroy (gameObject);
 		}
