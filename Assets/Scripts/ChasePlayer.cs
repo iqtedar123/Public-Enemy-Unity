@@ -10,6 +10,7 @@ public class ChasePlayer : MonoBehaviour
 
 	EnemyState enemyState;
 	public GameObject bullet;
+	public AudioSource bulletSound;
 	private float lastBulletTime = 0f;
 	public float spawnInterval;
 	float chaseCounter = 0f;
@@ -96,6 +97,10 @@ public class ChasePlayer : MonoBehaviour
 			if (Time.time - lastBulletTime >= spawnInterval)
 			{
 				lastBulletTime = Time.time;
+				if(bulletSound!= null)
+				{
+					bulletSound.Play();
+				}
 				var bulletIns = Instantiate(bullet, transform.position, transform.rotation);
 				bulletIns.transform.Translate(new Vector3(0.303f, 0.738f, 0));
 				bulletIns.transform.Rotate(Vector3.forward * 90);

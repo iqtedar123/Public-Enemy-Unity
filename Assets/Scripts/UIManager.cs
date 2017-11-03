@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour {
 	public Button skipCutsceneLevel1;
 	public Text statusText;
 	public float statusTextDuration = 5; //Seconds to read the text
+	int playOnce = 1;
+	int playBackground = 1;
+	public AudioSource DeathSound, PlayerWon, backgroundAudio;
 	// Use this for initialization
 	void Start () {
         if (retryButton != null)
@@ -54,6 +57,66 @@ public class UIManager : MonoBehaviour {
             {
                 gameOverReasonText.text = gameOverReason;
 				gameOverText.text = gameOver;
+				if (gameOverReason == "You Died!")
+				{
+					if (playOnce == 1)
+					{
+						playOnce++;
+						if (DeathSound != null)
+						{
+							DeathSound.Play();
+						}
+					}
+					else
+					{
+						
+						if (DeathSound != null)
+						{
+							if (!DeathSound.isPlaying)
+							{
+								if (playBackground == 1)
+								{
+									if (backgroundAudio != null)
+									{
+										playBackground++;
+										backgroundAudio.Play();
+									}
+								}
+							}
+						}
+					}
+				}
+				else
+				{
+					if (playOnce == 1)
+					{
+						playOnce++;
+						if (PlayerWon != null)
+						{
+							PlayerWon.Play();
+						}
+
+					}
+					else
+					{
+						//playOnce = 1;
+						if (PlayerWon != null)
+						{
+							if (!PlayerWon.isPlaying)
+							{
+								if (playBackground == 1)
+								{
+									if (backgroundAudio != null)
+									{
+										playBackground++;
+										backgroundAudio.Play();
+									}
+								}
+							}
+						}
+						
+					}
+				}
             }
         }
 	}

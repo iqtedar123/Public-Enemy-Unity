@@ -25,7 +25,8 @@ public class Movement : MonoBehaviour
     public bool purchasedMinimap = false;
     public Text ammoText;
     public Text gunCapacityText;
-
+	public AudioSource enemy_hit_sound;
+	public AudioSource bullet_sound;
 	// Use this for initialization
 	void Start ()
 	{
@@ -98,8 +99,14 @@ public class Movement : MonoBehaviour
             BulletPlayer.speed = currentGun.speed;
             BulletPlayer.damage = currentGun.damage;
             BulletPlayer.range = currentGun.range;
+			BulletPlayer.audioSrc = enemy_hit_sound;
             if(currentClip == 0) StartCoroutine(ReloadGun());
-            var bulletIns = Instantiate (bullet, transform.position, transform.rotation);
+			if (bullet_sound != null)
+			{
+				Debug.Log("bullet fired");
+				bullet_sound.Play();
+			}
+			var bulletIns = Instantiate (bullet, transform.position, transform.rotation);
 			bulletIns.transform.Translate (new Vector3 (0.303f, 0.738f, 0)); 
 			bulletIns.transform.Rotate (Vector3.forward * 90);
 			bulletIns.layer = LayerMask.NameToLayer ("Player");

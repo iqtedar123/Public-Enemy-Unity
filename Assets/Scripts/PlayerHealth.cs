@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     PlayerState playerState;
 	public Slider hpBar;
+	public AudioSource audioSrc;
     void Start()
     {
         playerState = gameObject.GetComponent<PlayerState>();
@@ -21,6 +22,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void Damage()
     {
+		if(audioSrc != null)
+		{
+			//Play player hurt sound
+			audioSrc.Play();
+		}
         playerState.health -= playerState.damageRate;
         Debug.Log("Player health: " + playerState.health);
 		if (hpBar != null) {
