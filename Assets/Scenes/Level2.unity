@@ -351,7 +351,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &11184208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &212898672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2022,7 +2022,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &276286824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,7 +2281,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &294465515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2762,7 +2762,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &372674621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2918,7 +2918,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 408786622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -310.12473, y: 222.078, z: 0}
+  m_LocalPosition: {x: -309.70154, y: 222.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2016248414}
@@ -3276,7 +3276,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 453993453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -226.40288, y: 222.078, z: 0}
+  m_LocalPosition: {x: -225.97969, y: 222.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1975017732}
@@ -3552,7 +3552,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485317914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -393.84656, y: 222.078, z: 0}
+  m_LocalPosition: {x: -393.42337, y: 222.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1760681693}
@@ -3730,7 +3730,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 490487306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 194.00934, y: 222.078, z: 0}
+  m_LocalPosition: {x: 194.43253, y: 222.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 118128405}
@@ -3921,7 +3921,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &518440836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4247,7 +4247,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &605399522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4432,7 +4432,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &633527914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4726,7 +4726,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &676162118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5086,7 +5086,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &703069891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5359,7 +5359,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764185009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 532.5, y: 454.5, z: 0}
+  m_LocalPosition: {x: 532, y: 454.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1666847183}
@@ -6782,7 +6782,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &982868421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7218,7 +7218,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1018507084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8710,7 +8710,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1350064683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9462,7 +9462,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1520971085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9970,7 +9970,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1570893418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10180,7 +10180,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1593839690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 532.5, y: 454.5, z: 0}
+  m_LocalPosition: {x: 532, y: 454.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1978941230}
@@ -10292,7 +10292,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666847182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.227478, y: -13.939789, z: 0}
+  m_LocalPosition: {x: 33.19626, y: -13.939789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 485317915}
@@ -10390,7 +10390,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668392220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.397156, y: 222.078, z: 0}
+  m_LocalPosition: {x: -25.973969, y: 222.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 532743297}
@@ -10582,7 +10582,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1677854262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10840,7 +10840,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1732495842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11339,7 +11339,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1778585776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11820,7 +11820,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &1923331555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12119,7 +12119,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1978941229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -402.50003, y: 382, z: 0}
+  m_LocalPosition: {x: -402.00003, y: 382, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5220258}
@@ -12559,7 +12559,7 @@ MonoBehaviour:
   stopChasingDistance: 10
   shouldChangeDirection: 0
   chaseTime: 2
-  escapeCopSeconds: 0.2
+  escapeCopSeconds: 0.5
 --- !u!114 &2051463648
 MonoBehaviour:
   m_ObjectHideFlags: 0
