@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Bullet
   - Merchant
+  - SmugglePoint
   layers:
   - Default
   - TransparentFX
