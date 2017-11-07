@@ -96,6 +96,7 @@ public class CopDetectPlayer : MonoBehaviour
 
 	private void catchPlayer(){
 		UIManager.gameOverReason = "The cops caught you!";
+		UIManager.levelToLoad = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene ("Game_Over");
 		// Reset vignette
 		var settings = ppBehaviour.profile.vignette.settings;

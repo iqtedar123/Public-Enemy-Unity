@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public static string gameOverReason;
 	public static string gameOver = "GAME OVER";
+	public static string levelToLoad;
     public Text gameOverReasonText;
 	public Text gameOverText;
 	public Dropdown levelSelection;
@@ -25,7 +26,7 @@ public class UIManager : MonoBehaviour {
         if (retryButton != null)
         {
             Button retryBtn = retryButton.GetComponent<Button>();
-            retryBtn.onClick.AddListener(openLevel0);
+            retryBtn.onClick.AddListener(restartLevel);
         }
 		if(startGameButton != null)
 		{
@@ -58,7 +59,7 @@ public class UIManager : MonoBehaviour {
             {
                 gameOverReasonText.text = gameOverReason;
 				gameOverText.text = gameOver;
-				if (gameOverReason == "You Died!")
+				if (gameOver == "GAME OVER")
 				{
 					if (playOnce == 1)
 					{
@@ -95,11 +96,11 @@ public class UIManager : MonoBehaviour {
             }
         }
 	}
-    public void openLevel0()
+    public void restartLevel()
     {
         //Opens level 0 
         gameOverReason = null;
-        SceneManager.LoadScene("Level01");
+		SceneManager.LoadScene(levelToLoad);
     }
 	//Initial Level to be loaded will be set here. 
 	public void openLevel()
@@ -107,15 +108,14 @@ public class UIManager : MonoBehaviour {
 		//Opens level when button is pressed in start menu. 
 		if (levelSelection != null)
 		{
-			if (levelSelection.value == 0)
-			{
+			if (levelSelection.value == 0) {
 				//Level 1
-				SceneManager.LoadScene("level1_cutscene");
-			}
-			else if (levelSelection.value == 1)
-			{
+				SceneManager.LoadScene ("level1_cutscene");
+			} else if (levelSelection.value == 1) {
 				//level 2
-				SceneManager.LoadScene("Level2");
+				SceneManager.LoadScene ("Level2");
+			} else if (levelSelection.value == 2) {
+				SceneManager.LoadScene ("Tutorial");
 			}
 		}
 		else

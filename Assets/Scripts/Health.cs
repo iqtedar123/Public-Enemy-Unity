@@ -60,9 +60,9 @@ public class Health : MonoBehaviour
 
 		if (Movement.enemiesCount <= 0) {
 			Debug.Log ("No more enemies!");
-			UIManager.gameOverReason = "No more enemies!";
-			UIManager.gameOver = "Congratulations! You win";
-			SceneManager.LoadScene ("Game_Over");
+			//UIManager.gameOverReason = "No more enemies!";
+			//UIManager.gameOver = "Congratulations! You win";
+			SceneManager.LoadScene ("Level2");
 			//Debug.Log("Loaded game over");
 		} else {
 			Debug.Log ("Not over");
