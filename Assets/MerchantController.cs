@@ -10,11 +10,15 @@ public class MerchantController : MonoBehaviour
     public GameObject minimap;
     public Text currency;
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Bullet") return;
-        if (col.gameObject.tag == "Player") OpenWeaponShop();
-    }
+	void Start() {
+		OpenWeaponShop ();
+	}
+
+//    void OnCollisionEnter2D(Collision2D col)
+//    {
+//        if (col.gameObject.tag == "Bullet") return;
+//        if (col.gameObject.tag == "Player") OpenWeaponShop();
+//    }
 
     public void PurchaseMinimap()
     {
