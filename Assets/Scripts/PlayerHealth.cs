@@ -12,6 +12,11 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         playerState = gameObject.GetComponent<PlayerState>();
+		if (hpBar != null) {
+			hpBar.maxValue = playerState.health;
+			hpBar.value = playerState.health;
+			hpBar.fillRect.GetComponent<Image>().color = Color.green;
+		}
     }
 
     public void DisablePlayer()
@@ -31,15 +36,15 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player health: " + playerState.health);
 		if (hpBar != null) {
 			hpBar.value = playerState.health;
-			if (playerState.health <= 100 && playerState.health >= 75) {
-				hpBar.fillRect.GetComponent<Image>().color = Color.green;
-			}else if(playerState.health< 75 && playerState.health >= 50)
+			if (playerState.health <= hpBar.maxValue / 3) {
+				hpBar.fillRect.GetComponent<Image>().color = Color.red;
+			}else if(playerState.health <= 2*(hpBar.maxValue / 3))
 			{
 				hpBar.fillRect.GetComponent<Image>().color = Color.yellow;
 			}
 			else
 			{
-				hpBar.fillRect.GetComponent<Image>().color = Color.red;
+				hpBar.fillRect.GetComponent<Image>().color = Color.green;
 			}
 		}
         if (playerState.health <= 0)
