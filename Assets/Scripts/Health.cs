@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 	{
 		gameObject.SetActive (false);
 		Movement.enemiesCount = Movement.enemiesCount - 1;
-		isGameOver ();
+        if (Object.FindObjectsOfType<TutorialLevel>().Length == 0) isGameOver();
 	}
 
 	public void Damage (int damage)

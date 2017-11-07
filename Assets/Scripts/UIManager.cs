@@ -62,28 +62,16 @@ public class UIManager : MonoBehaviour {
 					if (playOnce == 1)
 					{
 						playOnce++;
-						if (DeathSound != null)
-						{
-							DeathSound.Play();
-						}
-					}
+						if (DeathSound != null) DeathSound.Play();
+                    }
 					else
 					{
 						
-						if (DeathSound != null)
+						if (DeathSound != null && !DeathSound.isPlaying && playBackground == 1 && backgroundAudio != null)
 						{
-							if (!DeathSound.isPlaying)
-							{
-								if (playBackground == 1)
-								{
-									if (backgroundAudio != null)
-									{
-										playBackground++;
-										backgroundAudio.Play();
-									}
-								}
-							}
-						}
+                            playBackground++;
+                            backgroundAudio.Play();
+                        }
 					}
 				}
 				else
@@ -91,30 +79,16 @@ public class UIManager : MonoBehaviour {
 					if (playOnce == 1)
 					{
 						playOnce++;
-						if (PlayerWon != null)
-						{
-							PlayerWon.Play();
-						}
-
-					}
+						if (PlayerWon != null) PlayerWon.Play();
+                    }
 					else
 					{
 						//playOnce = 1;
-						if (PlayerWon != null)
+						if (PlayerWon != null && !PlayerWon.isPlaying && playBackground == 1 && backgroundAudio != null)
 						{
-							if (!PlayerWon.isPlaying)
-							{
-								if (playBackground == 1)
-								{
-									if (backgroundAudio != null)
-									{
-										playBackground++;
-										backgroundAudio.Play();
-									}
-								}
-							}
-						}
-						
+                            playBackground++;
+                            backgroundAudio.Play();
+                        }						
 					}
 				}
             }

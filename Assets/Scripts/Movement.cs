@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
 	public LineRenderer shootLine;
 
 	private float lastBulletTime = 0f;
-
+    public bool playerCanMove = true;
     public WeaponObj[] availableWeapons;
     public int currentWeapon = 0;
     public int currentClip;
@@ -43,11 +43,15 @@ public class Movement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		//Update position of player
-		var currentPosition = transform.position;
-		currentPosition.x += Input.GetAxisRaw ("Horizontal") * speed * Time.deltaTime;
-		currentPosition.y += Input.GetAxisRaw ("Vertical") * speed * Time.deltaTime;
-		transform.position = new Vector3 (currentPosition.x, currentPosition.y);
+        //Update position of player
+        if (playerCanMove)
+        {
+            var currentPosition = transform.position;
+            currentPosition.x += Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
+            currentPosition.y += Input.GetAxisRaw("Vertical") * speed * Time.deltaTime;
+            transform.position = new Vector3(currentPosition.x, currentPosition.y);
+        }
+		
 
 		// Update player direction.
 		faceMouse ();
