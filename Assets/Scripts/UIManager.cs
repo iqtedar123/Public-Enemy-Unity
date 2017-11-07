@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
 	public static string gameOver = "GAME OVER";
     public Text gameOverReasonText;
 	public Text gameOverText;
+	public Dropdown levelSelection;
     public Button retryButton;
 	public Button startGameButton;
 	public Button settingsButton;
@@ -104,8 +105,24 @@ public class UIManager : MonoBehaviour {
 	public void openLevel()
 	{
 		//Opens level when button is pressed in start menu. 
-		//TODO Change this later. 
-		SceneManager.LoadScene("level1_cutscene");
+		if (levelSelection != null)
+		{
+			if (levelSelection.value == 0)
+			{
+				//Level 1
+				SceneManager.LoadScene("level1_cutscene");
+			}
+			else if (levelSelection.value == 1)
+			{
+				//level 2
+				SceneManager.LoadScene("Level2");
+			}
+		}
+		else
+		{
+			//Default to cutscene. 
+			SceneManager.LoadScene("level1_cutscene");
+		}
 	}
 	public void openMainMenu()
 	{
