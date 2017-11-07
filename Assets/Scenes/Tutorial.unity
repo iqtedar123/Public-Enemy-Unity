@@ -1436,6 +1436,7 @@ MonoBehaviour:
   step0Count: 0
   player: {fileID: 0}
   task: {fileID: 2133269420}
+  shop: {fileID: 1322297306}
   tutorialSteps:
   - Use your mouse to aim and shoot a few times using the left button to learn the
     shooting mechanism
@@ -4066,7 +4067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1322297307
 MonoBehaviour:
   m_ObjectHideFlags: 0
