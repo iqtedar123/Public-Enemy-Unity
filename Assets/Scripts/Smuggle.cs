@@ -20,6 +20,7 @@ public class Smuggle : MonoBehaviour {
 		if (col.gameObject.CompareTag ("SmugglePoint")) {
 			UIManager.gameOverReason = "Smuggline successful";
 			UIManager.gameOver = "Congratulations, you win!";
+			UIManager.levelToLoad = SceneManager.GetActiveScene().name;
 			SceneManager.LoadScene ("Game_Over");
 		}
 	}
