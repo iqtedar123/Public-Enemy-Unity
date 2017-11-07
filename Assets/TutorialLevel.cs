@@ -11,13 +11,16 @@ public class TutorialLevel : MonoBehaviour
     public int step0Count = 0;
     public Movement player;
     public Text task;
+    public GameObject shop;
     public string[] tutorialSteps;
 
     // Use this for initialization
     void Start()
     {
+        shop.SetActive(false);
         player = Object.FindObjectOfType<Movement>();
         player.playerCanMove = false;
+        Time.timeScale = 1;
         tutorialSteps = new string[]{
         "Use your mouse to aim and shoot a few times holding the left button to learn the shooting mechanism",
         "Good job! You can use the 'R' Key to reload your weapon.",
@@ -31,7 +34,11 @@ public class TutorialLevel : MonoBehaviour
     void Update()
     {
 
-        if (tutorialState == -1 && Input.GetKeyDown(KeyCode.Space)) UpdateTask();
+        if (tutorialState == -1 && Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 1;
+            UpdateTask();
+        }
         if (tutorialState == 0 && Input.GetButton("Fire1"))
         {
             step0Count++;
