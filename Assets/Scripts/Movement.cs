@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     public bool purchasedMinimap = false;
     public Text ammoText;
     public Text gunCapacityText;
+	public Text enemiesCountText;
 	public AudioSource enemy_hit_sound;
 	public AudioSource bullet_sound;
 	// Use this for initialization
@@ -32,6 +33,7 @@ public class Movement : MonoBehaviour
 	{
 		waypointArray = GameObject.FindGameObjectsWithTag ("Enemy");
 		Movement.enemiesCount = waypointArray.Length;
+		enemiesCountText.text = Movement.enemiesCount.ToString();
         currentClip = availableWeapons[currentWeapon].clipCapacity;
         gunAmmo = availableWeapons[currentWeapon].ammoCapacity;
         ammoText.text = currentClip.ToString();
@@ -64,6 +66,8 @@ public class Movement : MonoBehaviour
             currentClip = 0;
             StartCoroutine(ReloadGun());
         }
+
+		enemiesCountText.text = Movement.enemiesCount.ToString();
 	}
 
 	private void faceMouse ()
