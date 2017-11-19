@@ -115,7 +115,18 @@ public class UIManager : MonoBehaviour {
 				//level 2
 				SceneManager.LoadScene ("Level2");
 			} else if (levelSelection.value == 2) {
-				SceneManager.LoadScene ("Tutorial");
+				SceneManager.LoadScene ("Level3");
+			}else if(levelSelection.value == 3)
+			{
+				SceneManager.LoadScene("Level4");
+			}
+			else if (levelSelection.value == 4)
+			{
+				SceneManager.LoadScene("Level5");
+			}
+			else if (levelSelection.value == 5)
+			{
+				SceneManager.LoadScene("Tutorial");
 			}
 		}
 		else
