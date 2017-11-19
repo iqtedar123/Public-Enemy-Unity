@@ -95,6 +95,7 @@ public class CopDetectPlayer : MonoBehaviour
 	}
 
 	private void catchPlayer(){
+		UIManager.gameOver = "GAME OVER";
 		UIManager.gameOverReason = "The cops caught you!";
 		UIManager.levelToLoad = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene ("Game_Over");
