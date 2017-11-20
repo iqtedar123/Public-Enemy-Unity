@@ -57,10 +57,12 @@ public class Health : MonoBehaviour
 	private void isGameOver ()
 	{
 		//TODO Determine if game is over when all enemies are dead or if the end of level is reached. 
+
 		if (SceneManager.GetActiveScene().name == "Tutorial")
 		{
 			return;
 		}
+
 		if (Movement.enemiesCount <= 0) {
 			Debug.Log ("No more enemies!");
 			//UIManager.gameOverReason = "No more enemies!";
