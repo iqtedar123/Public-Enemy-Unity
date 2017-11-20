@@ -75,6 +75,9 @@ public class Health : MonoBehaviour
 			}else if (SceneManager.GetActiveScene().Equals("Level01"))
 			{
 				SceneManager.LoadScene("Level2");
+			}else if (SceneManager.GetActiveScene().Equals("Level3"))
+			{
+				SceneManager.LoadScene("Level4");
 			}
 			
 			//Debug.Log("Loaded game over");
