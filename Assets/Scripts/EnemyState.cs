@@ -28,7 +28,7 @@ public class EnemyState : MonoBehaviour
 
 	public bool shouldChangeDirection = false;
 
-	public float chaseTime = 1f;
+	public float chaseTime = 3f;
 
 	public float escapeCopSeconds = 0.5f;
 

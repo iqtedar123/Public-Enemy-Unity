@@ -28,7 +28,7 @@ public class ChasePlayer : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (enemyState.getPatrolMode () && shouldStartChasing ()) {
+		if ((enemyState.getPatrolMode () || retreating) && shouldStartChasing ()) {
 			initiateChase ();
 		}
 
@@ -41,8 +41,6 @@ public class ChasePlayer : MonoBehaviour
 
 			else if (retreating && shouldStopRetreating ())
 				stopRetreat ();
-			else if (retreating)
-				retreat ();
 		}
 
 
@@ -79,14 +77,11 @@ public class ChasePlayer : MonoBehaviour
 			if (chaseCounter <= 0)
 				return true;
 		} 
-//		else {
-//			chaseCounter = enemyState.chaseTime;
-//		}
+
 		return false;
 	}
 
 	private bool shouldStopRetreating() {
-//		return transform.position.Equals(enemyState.initialPos);
 		return this.GetComponent<AIPath>().TargetReached;
 	}
 
@@ -100,6 +95,7 @@ public class ChasePlayer : MonoBehaviour
 		this.GetComponent<AIPath> ().target = playerTransform;
 		this.GetComponent<AIPath> ().canSearch = true;
 		this.GetComponent<AIPath>().enabled = true;
+		this.GetComponent<AIPath> ().SearchPath ();
 	}
 
 	private void initiateRetreat() {
@@ -126,11 +122,6 @@ public class ChasePlayer : MonoBehaviour
 				playerTransform.position.x - transform.position.x,
 				playerTransform.position.y - transform.position.y
 			);
-		} else {
-			Debug.Log ("CHASING " + Time.time);
-//			chasing = true;
-//			this.GetComponent<AIPath> ().canSearch = true;
-//			this.GetComponent<AIPath>().enabled = true;
 		}
 
 		//sHOOT THE BUllet
@@ -138,40 +129,14 @@ public class ChasePlayer : MonoBehaviour
 
 	}
 
-	private void retreat ()
-	{
-		Seeker seeker = GetComponent<Seeker> ();
-
-		if (seeker == null) {
-			// Move towards initial position.
-			transform.position = Vector2.MoveTowards (
-				transform.position,
-				enemyState.initialPos,
-				Mathf.Abs (enemyState.velocity) * Time.deltaTime
-			);
-			// Face the initial position.
-			transform.up = new Vector2 (
-				enemyState.initialPos.x - transform.position.x,
-				enemyState.initialPos.y - transform.position.y
-			);
-		} else {
-//			retreating = true;
-//			this.GetComponent<AIPath> ().canSearch = true;
-//			this.GetComponent<AIPath>().enabled = true;
-//			this.GetComponent<AIPath>().target = 
-		}
-			
-	}
-
 	private void stopChase() {
-//		if (chasing) {
-//			chasing = false;
-//			this.GetComponent<AIPath> ().canSearch = false;
-//			this.GetComponent<AIPath> ().enabled = false;
-//		}
-//		enemyState.setPatrolMode (true);
+		var seeker = GetComponent<Seeker> ();
+
 		chasing = false;
-		initiateRetreat ();
+		if (seeker == null)
+			stopRetreat ();
+		else
+			initiateRetreat ();
 
 	}
 
