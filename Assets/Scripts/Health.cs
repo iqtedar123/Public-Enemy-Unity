@@ -67,7 +67,16 @@ public class Health : MonoBehaviour
 			Debug.Log ("No more enemies!");
 			//UIManager.gameOverReason = "No more enemies!";
 			//UIManager.gameOver = "Congratulations! You win";
-			SceneManager.LoadScene ("Level2");
+			if (SceneManager.GetActiveScene().Equals("Level4"))
+			{
+				//Open level 5. 
+				Debug.Log("Opening Level5");
+				SceneManager.LoadScene("Level5");
+			}else if (SceneManager.GetActiveScene().Equals("Level01"))
+			{
+				SceneManager.LoadScene("Level2");
+			}
+			
 			//Debug.Log("Loaded game over");
 		} else {
 			Debug.Log ("Not over");
