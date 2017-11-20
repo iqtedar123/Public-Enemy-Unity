@@ -16,6 +16,9 @@ public class EnemyState : MonoBehaviour
 
 	public float viewAngleHalf = 22.5f;
 
+	// This is accessed by other scripts.
+	public Vector2 initialPos;
+
 	private bool patrolMode = true;
 
 	// How close the player must be before getting chased.
@@ -25,7 +28,7 @@ public class EnemyState : MonoBehaviour
 
 	public bool shouldChangeDirection = false;
 
-	public float chaseTime = 5f;
+	public float chaseTime = 1f;
 
 	public float escapeCopSeconds = 0.5f;
 
