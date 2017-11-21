@@ -51,7 +51,11 @@ public class TutorialLevel : MonoBehaviour
         }
         if (tutorialState == 2 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0) UpdateTask();
         if (tutorialState == 3 && player.gameObject.transform.position.x > 29) UpdateTask();
-        if (tutorialState == 4 && Input.GetKeyDown(KeyCode.Space)) SceneManager.LoadScene("Level01");
+		if (tutorialState == 4 && Input.GetKeyDown(KeyCode.Space)) {
+			//Get the scene selected in main menu. 
+			string sceneName = UIManager.sceneName;
+			SceneManager.LoadScene(sceneName);
+		};
         
     }
     public void UpdateTask(int? taskId = null)
