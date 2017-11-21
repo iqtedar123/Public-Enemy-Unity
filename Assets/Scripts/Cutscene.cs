@@ -38,6 +38,7 @@ public class Cutscene : MonoBehaviour {
 				nextFrameTime = frameTime;
 			}
 		} else {
+			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), frames [frames.Length - 1]);
 			SceneManager.LoadScene (levelname);
 		}
 	}
