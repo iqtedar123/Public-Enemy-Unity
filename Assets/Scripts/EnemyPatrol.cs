@@ -25,6 +25,8 @@ public class EnemyPatrol : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
+		if (col.gameObject.CompareTag ("Player")) return;
+
 		if (enemyState.getPatrolMode () && col.gameObject.CompareTag ("Wall")) {
 			changeDirection ();
 		} else {
