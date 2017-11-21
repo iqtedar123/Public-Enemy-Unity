@@ -23,6 +23,7 @@ public class CopDetectPlayer : MonoBehaviour
 		ppBehaviour = Camera.main.GetComponent<PostProcessingBehaviour>();
 		initVigIntensity = ppBehaviour.profile.vignette.settings.intensity;
 		drawFieldOfView ();
+		GetComponent<Rigidbody2D> ().mass = 100000000;
 	}
 	
 	// Update is called once per frame

@@ -21,7 +21,7 @@ public class Smuggle : MonoBehaviour {
 			UIManager.gameOverReason = "Smuggline successful";
 			UIManager.gameOver = "Congratulations, you win!";
 			UIManager.levelToLoad = SceneManager.GetActiveScene().name;
-			SceneManager.LoadScene ("Game_Over");
+			SceneManager.LoadScene ("Level3");
 		}
 	}
 }

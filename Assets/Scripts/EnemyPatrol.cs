@@ -5,15 +5,14 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
 	EnemyState enemyState;
-	Vector2 initialPos;
 	Vector2 curPos;
 
 	// Use this for initialization
 	void Start ()
 	{
 		enemyState = gameObject.GetComponent<EnemyState> ();
-		initialPos = transform.position;
-		faceCorrectDirection (initialPos);
+		enemyState.initialPos = transform.position;
+		faceCorrectDirection (enemyState.initialPos);
 	}
 
 	// Update is called once per frame
@@ -26,6 +25,8 @@ public class EnemyPatrol : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
+		if (col.gameObject.CompareTag ("Player")) return;
+
 		if (enemyState.getPatrolMode () && col.gameObject.CompareTag ("Wall")) {
 			changeDirection ();
 		} else {
@@ -42,7 +43,7 @@ public class EnemyPatrol : MonoBehaviour
 			curPos.y += enemyState.velocity * Time.deltaTime;
 		}
 
-		if (Vector2.Distance (curPos, initialPos) <= enemyState.movementDistance && enemyState.shouldChangeDirection == false) {
+		if (Vector2.Distance (curPos, enemyState.initialPos) <= enemyState.movementDistance && enemyState.shouldChangeDirection == false) {
 			transform.position = curPos;
 		} else {
 			changeDirection ();
