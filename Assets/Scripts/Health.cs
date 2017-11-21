@@ -67,17 +67,18 @@ public class Health : MonoBehaviour
 			Debug.Log ("No more enemies!");
 			//UIManager.gameOverReason = "No more enemies!";
 			//UIManager.gameOver = "Congratulations! You win";
-			if (SceneManager.GetActiveScene().Equals("Level4"))
-			{
+			if (SceneManager.GetActiveScene ().name == "Level4") {
 				//Open level 5. 
-				Debug.Log("Opening Level5");
-				SceneManager.LoadScene("Level5");
-			}else if (SceneManager.GetActiveScene().Equals("Level01"))
-			{
-				SceneManager.LoadScene("Level2");
-			}else if (SceneManager.GetActiveScene().Equals("Level3"))
-			{
-				SceneManager.LoadScene("Level4");
+				Debug.Log ("Opening Level5");
+				SceneManager.LoadScene ("Level5");
+			} else if (SceneManager.GetActiveScene ().name == "Level01") {
+				SceneManager.LoadScene ("Level2");
+			} else if (SceneManager.GetActiveScene ().name == "Level3") {
+				SceneManager.LoadScene ("Level4");
+			} else if (SceneManager.GetActiveScene ().name == "Level5") {
+				UIManager.gameOverReason = "You are officially Public Enemy #1";
+				UIManager.gameOver = "Congratulations, you win!";
+				SceneManager.LoadScene ("Game_Over");
 			}
 			
 			//Debug.Log("Loaded game over");
