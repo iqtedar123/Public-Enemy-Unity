@@ -796,7 +796,7 @@ Prefab:
     - target: {fileID: 114390723141034452, guid: bb81a6e0c67aa4b868895e49e68838aa,
         type: 2}
       propertyPath: pointsForKill
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 114390723141034452, guid: bb81a6e0c67aa4b868895e49e68838aa,
         type: 2}
@@ -8942,7 +8942,7 @@ Prefab:
     - target: {fileID: 114390723141034452, guid: bb81a6e0c67aa4b868895e49e68838aa,
         type: 2}
       propertyPath: health
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 114390723141034452, guid: bb81a6e0c67aa4b868895e49e68838aa,
         type: 2}
