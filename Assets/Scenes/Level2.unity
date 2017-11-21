@@ -347,6 +347,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -1671,6 +1672,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -2093,6 +2095,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -2353,6 +2356,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -2835,6 +2839,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -2996,7 +3001,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 408786622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -128.99533, y: 122.14288, z: 0}
+  m_LocalPosition: {x: -201.36246, y: 122.14288, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2016248414}
@@ -3354,7 +3359,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 453993453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.273502, y: 122.14288, z: 0}
+  m_LocalPosition: {x: -117.640625, y: 122.14288, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1975017732}
@@ -3630,7 +3635,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485317914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -212.71715, y: 122.14288, z: 0}
+  m_LocalPosition: {x: -285.0843, y: 122.14288, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1760681693}
@@ -3808,7 +3813,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 490487306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 375.13873, y: 122.14288, z: 0}
+  m_LocalPosition: {x: 302.7716, y: 122.14288, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 118128405}
@@ -3995,6 +4000,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -4322,6 +4328,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -4508,6 +4515,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -4803,6 +4811,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -5164,6 +5173,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -5442,7 +5452,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764185009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 318.5, y: 346.5, z: 0}
+  m_LocalPosition: {x: 404, y: 346.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1666847183}
@@ -6924,6 +6934,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -7361,6 +7372,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -8050,6 +8062,7 @@ GameObject:
   - component: {fileID: 1234328647}
   - component: {fileID: 1234328646}
   - component: {fileID: 1234328645}
+  - component: {fileID: 1234328652}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8150,6 +8163,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1234328652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234328644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70429a5e8212924487e71a81d4b064a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverReasonText: {fileID: 0}
+  gameOverText: {fileID: 0}
+  levelSelection: {fileID: 0}
+  retryButton: {fileID: 0}
+  startGameButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  exitToMainButton: {fileID: 0}
+  skipCutsceneLevel1: {fileID: 0}
+  statusText: {fileID: 0}
+  pointsText: {fileID: 931487385}
+  tutorialToggle: {fileID: 0}
+  statusTextDuration: 5
+  DeathSound: {fileID: 0}
+  PlayerWon: {fileID: 0}
+  backgroundAudio: {fileID: 0}
 --- !u!1 &1234490390
 GameObject:
   m_ObjectHideFlags: 0
@@ -8854,6 +8893,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -9607,6 +9647,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -10145,6 +10186,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -10360,7 +10402,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1593839690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 318.5, y: 346.5, z: 0}
+  m_LocalPosition: {x: 404, y: 346.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1978941230}
@@ -10472,7 +10514,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666847182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.87407, y: -5.8749084, z: 0}
+  m_LocalPosition: {x: 25.209198, y: -5.8749084, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 485317915}
@@ -10570,7 +10612,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1668392220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 154.73224, y: 122.14288, z: 0}
+  m_LocalPosition: {x: 82.36511, y: 122.14288, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 532743297}
@@ -10758,6 +10800,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -11017,6 +11060,7 @@ MonoBehaviour:
   movementPlane: 120
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -11517,6 +11561,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -11999,6 +12044,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0
@@ -12329,7 +12375,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1978941229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -188.5, y: 274, z: 0}
+  m_LocalPosition: {x: -274, y: 274, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5220258}
@@ -12765,6 +12811,7 @@ MonoBehaviour:
   movementPlane: 121
   movementDistance: 2
   viewAngleHalf: 22.5
+  initialPos: {x: 0, y: 0}
   startChasingDistance: 5
   stopChasingDistance: 10
   shouldChangeDirection: 0

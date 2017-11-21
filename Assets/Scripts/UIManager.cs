@@ -16,9 +16,10 @@ public class UIManager : MonoBehaviour {
 	public Button settingsButton;
 	public Button exitToMainButton;
 	public Button skipCutsceneLevel1;
-	public Text statusText;
+	public Text statusText, pointsText;
 	public Toggle tutorialToggle;
 	public static string sceneName;
+	public static int points = 100;
 	public float statusTextDuration = 5; //Seconds to read the text
 	int playOnce = 1;
 	int playBackground = 1;
@@ -54,7 +55,10 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if(pointsText != null)
+		{
+			pointsText.text = "" + UIManager.points;
+		}
 		if(gameOverReasonText != null)
         {
             if(gameOverReason != null)
