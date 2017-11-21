@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour {
 	public Button exitToMainButton;
 	public Button skipCutsceneLevel1;
 	public Text statusText;
+	public Toggle tutorialToggle;
+	public static string sceneName;
 	public float statusTextDuration = 5; //Seconds to read the text
 	int playOnce = 1;
 	int playBackground = 1;
@@ -105,35 +107,52 @@ public class UIManager : MonoBehaviour {
 	//Initial Level to be loaded will be set here. 
 	public void openLevel()
 	{
+		//Store the selected level in a global variable.
 		//Opens level when button is pressed in start menu. 
 		if (levelSelection != null)
 		{
-			if (levelSelection.value == 0) {
-				//Level 1
-				SceneManager.LoadScene ("level1_cutscene");
-			} else if (levelSelection.value == 1) {
-				//level 2
-				SceneManager.LoadScene ("Level2");
-			} else if (levelSelection.value == 2) {
-				SceneManager.LoadScene ("Level3");
-			}else if(levelSelection.value == 3)
+			if (levelSelection.value == 0)
 			{
-				SceneManager.LoadScene("Level4");
+				//Level 1
+				sceneName = "level1_cutscene";
+			}
+			else if (levelSelection.value == 1)
+			{
+				//level 2
+				sceneName = "Level2";
+			}
+			else if (levelSelection.value == 2)
+			{
+				sceneName = "Level3";
+			}
+			else if (levelSelection.value == 3)
+			{
+				sceneName = "Level4";
 			}
 			else if (levelSelection.value == 4)
 			{
-				SceneManager.LoadScene("Level5");
-			}
-			else if (levelSelection.value == 5)
-			{
-				SceneManager.LoadScene("Tutorial");
+				sceneName = "Level5";
 			}
 		}
 		else
 		{
 			//Default to cutscene. 
-			SceneManager.LoadScene("level1_cutscene");
+			sceneName = "level1_cutscene";
 		}
+		//Check to see if toggle for tutorial is selected. 
+		if (tutorialToggle != null) {
+			//Tutorial toggle exists. 
+			if (tutorialToggle.isOn == true)
+			{
+				//Player wants tutorial first. 
+				SceneManager.LoadScene("Tutorial");
+			}
+			else
+			{
+				SceneManager.LoadScene(sceneName);
+			}
+		}
+		
 	}
 	public void openMainMenu()
 	{
