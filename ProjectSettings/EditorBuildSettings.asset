@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: d7e0ff962e447144aa1fc8b523354ead
   - enabled: 1
-    path: Assets/Scenes/level1_cutscene.unity
-    guid: 13a624f755f1b1848ab7e625fe1cc616
-  - enabled: 1
     path: Assets/Scenes/Level01.unity
     guid: e0a75d0966508df44970170e7ab531a3
   - enabled: 1
@@ -32,3 +29,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level5.unity
     guid: 431f5c39ed996ef45b5c410810d2b41f
+  - enabled: 1
+    path: Assets/Scenes/level1_cutscene.unity
+    guid: 3a2dc3d032d2a47218c26c3ee44a25a8
+  - enabled: 1
+    path: Assets/Scenes/level2_cutscene.unity
+    guid: 693b4036fa6c84f2088e247b2a297f9a
+  - enabled: 1
+    path: Assets/Scenes/level3_cutscene.unity
+    guid: 983dc9237a7f340acae1e2123ce14ee6
+  - enabled: 1
+    path: Assets/Scenes/level4_cutscene.unity
+    guid: 026166f0924b946bdb01c4340ed101eb
+  - enabled: 1
+    path: Assets/Scenes/level5_cutscene.unity
+    guid: 40eea8050664b462dbbe23a56ffc2b71

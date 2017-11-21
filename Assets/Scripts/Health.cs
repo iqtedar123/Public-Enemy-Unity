@@ -70,11 +70,11 @@ public class Health : MonoBehaviour
 			if (SceneManager.GetActiveScene ().name == "Level4") {
 				//Open level 5. 
 				Debug.Log ("Opening Level5");
-				SceneManager.LoadScene ("Level5");
+				SceneManager.LoadScene ("level5_cutscene");
 			} else if (SceneManager.GetActiveScene ().name == "Level01") {
-				SceneManager.LoadScene ("Level2");
+				SceneManager.LoadScene ("level2_cutscene");
 			} else if (SceneManager.GetActiveScene ().name == "Level3") {
-				SceneManager.LoadScene ("Level4");
+				SceneManager.LoadScene ("level4_cutscene");
 			} else if (SceneManager.GetActiveScene ().name == "Level5") {
 				UIManager.gameOverReason = "You are officially Public Enemy #1";
 				UIManager.gameOver = "Congratulations, you win!";
