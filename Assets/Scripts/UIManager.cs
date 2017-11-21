@@ -119,19 +119,19 @@ public class UIManager : MonoBehaviour {
 			else if (levelSelection.value == 1)
 			{
 				//level 2
-				sceneName = "Level2";
+				sceneName = "level2_cutscene";
 			}
 			else if (levelSelection.value == 2)
 			{
-				sceneName = "Level3";
+				sceneName = "level3_cutscene";
 			}
 			else if (levelSelection.value == 3)
 			{
-				sceneName = "Level4";
+				sceneName = "level4_cutscene";
 			}
 			else if (levelSelection.value == 4)
 			{
-				sceneName = "Level5";
+				sceneName = "level5_cutscene";
 			}
 		}
 		else
