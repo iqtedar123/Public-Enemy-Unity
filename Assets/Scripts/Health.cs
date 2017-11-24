@@ -64,6 +64,7 @@ public class Health : MonoBehaviour
 		}
 
 		if (Movement.enemiesCount <= 0) {
+			UIManager.points = UIManager.points + 50;
 			Debug.Log ("No more enemies!");
 			//UIManager.gameOverReason = "No more enemies!";
 			//UIManager.gameOver = "Congratulations! You win";

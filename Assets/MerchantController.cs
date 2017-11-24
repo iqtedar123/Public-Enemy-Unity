@@ -32,7 +32,9 @@ public class MerchantController : MonoBehaviour
         if(currentCurrency >= value)
         {
             currency.text = (currentCurrency - value).ToString();
-            return true;
+			UIManager.points = currentCurrency - value;
+
+			return true;
         }
         return false;
 
