@@ -27,7 +27,6 @@ public class UIManager : MonoBehaviour {
 	void Start () {
 		if (levelSelection != null) {
 			levelSelection.ClearOptions ();
-//			Debug.Log ("FURTHEST SCENE: " + CarryOverState.furthestScene);
 			if (CarryOverState.furthestScene == 0) {
 				levelSelection.AddOptions(new List<string> { "Level 1" });
 			} else if (CarryOverState.furthestScene == 1) {

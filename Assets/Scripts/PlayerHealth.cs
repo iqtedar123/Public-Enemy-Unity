@@ -12,17 +12,14 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
 		transform.GetComponent<Rigidbody2D>().mass = 10000;
-		transform.GetComponent<PlayerState>().health = 1000000000;
         playerState = gameObject.GetComponent<PlayerState>();
 		if (hpBar != null) {
 			hpBar.maxValue = playerState.health;
 			hpBar.value = playerState.health;
 			hpBar.fillRect.GetComponent<Image>().color = Color.green;
 		}
-		Debug.Log ("Loaded: " + Time.time);
 
 		var curScene = SceneManager.GetActiveScene ().name;
-		Debug.Log ("FURTHEST SCENE: " + curScene);
 		if (curScene == "Level2") {
 			CarryOverState.furthestScene = Mathf.Max(CarryOverState.furthestScene, 1);
 		} else if (curScene == "Level3") {
