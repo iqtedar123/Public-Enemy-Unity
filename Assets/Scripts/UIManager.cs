@@ -19,7 +19,6 @@ public class UIManager : MonoBehaviour {
 	public Text statusText, pointsText;
 	public Toggle tutorialToggle;
 	public static string sceneName;
-	public static int points = 100;
 	public float statusTextDuration = 5; //Seconds to read the text
 	int playOnce = 1;
 	int playBackground = 1;
@@ -57,7 +56,7 @@ public class UIManager : MonoBehaviour {
 	void Update () {
 		if(pointsText != null)
 		{
-			pointsText.text = "" + UIManager.points;
+			pointsText.text = "" + CarryOverState.points;
 		}
 		if(gameOverReasonText != null)
         {
@@ -111,6 +110,7 @@ public class UIManager : MonoBehaviour {
 	//Initial Level to be loaded will be set here. 
 	public void openLevel()
 	{
+		CarryOverState.levelSelected = true;
 		//Store the selected level in a global variable.
 		//Opens level when button is pressed in start menu. 
 		if (levelSelection != null)

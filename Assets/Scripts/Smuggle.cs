@@ -18,11 +18,12 @@ public class Smuggle : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.CompareTag ("SmugglePoint")) {
-			UIManager.points = UIManager.points + 50;
+			CarryOverState.points = CarryOverState.points + 50;
 			UIManager.gameOverReason = "Smuggline successful";
 			UIManager.gameOver = "Congratulations, you win!";
 			UIManager.levelToLoad = SceneManager.GetActiveScene().name;
 			SceneManager.LoadScene ("level3_cutscene");
+			CarryOverState.levelSelected = false;
 		}
 	}
 }

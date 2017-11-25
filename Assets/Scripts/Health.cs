@@ -64,7 +64,8 @@ public class Health : MonoBehaviour
 		}
 
 		if (Movement.enemiesCount <= 0) {
-			UIManager.points = UIManager.points + 50;
+			CarryOverState.points = CarryOverState.points + 50;
+			CarryOverState.levelSelected = false;
 			Debug.Log ("No more enemies!");
 			//UIManager.gameOverReason = "No more enemies!";
 			//UIManager.gameOver = "Congratulations! You win";

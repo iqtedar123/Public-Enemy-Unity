@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
 			hpBar.value = playerState.health;
 			hpBar.fillRect.GetComponent<Image>().color = Color.green;
 		}
+		Debug.Log ("Loaded: " + Time.time);
     }
 
     public void DisablePlayer()
