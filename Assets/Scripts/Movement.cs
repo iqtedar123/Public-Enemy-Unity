@@ -34,10 +34,8 @@ public class Movement : MonoBehaviour
 		waypointArray = GameObject.FindGameObjectsWithTag ("Enemy");
 		Movement.enemiesCount = waypointArray.Length;
 		enemiesCountText.text = Movement.enemiesCount.ToString();
-        currentClip = availableWeapons[currentWeapon].clipCapacity;
-        gunAmmo = availableWeapons[currentWeapon].ammoCapacity;
-        ammoText.text = currentClip.ToString();
-        gunCapacityText.text = gunAmmo.ToString();
+		UpdateGun ();
+        
 	}
 
 	// Update is called once per frame
@@ -68,6 +66,13 @@ public class Movement : MonoBehaviour
         }
 
 		enemiesCountText.text = Movement.enemiesCount.ToString();
+	}
+
+	public void UpdateGun() {
+		currentClip = availableWeapons[currentWeapon].clipCapacity;
+		gunAmmo = availableWeapons[currentWeapon].ammoCapacity;
+		ammoText.text = currentClip.ToString();
+		gunCapacityText.text = gunAmmo.ToString();
 	}
 
 	private void faceMouse ()
