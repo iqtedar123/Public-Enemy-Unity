@@ -8,6 +8,7 @@ public static class CarryOverState {
 	public static int pointsAtStartOfLevel;
 
 	public static string currentScene;
+	public static int furthestScene = 0;
 	// Is the level selected from the menu.
 	public static bool levelSelected = true;
 }

@@ -25,6 +25,21 @@ public class UIManager : MonoBehaviour {
 	public AudioSource DeathSound, PlayerWon, backgroundAudio;
 	// Use this for initialization
 	void Start () {
+		if (levelSelection != null) {
+			levelSelection.ClearOptions ();
+//			Debug.Log ("FURTHEST SCENE: " + CarryOverState.furthestScene);
+			if (CarryOverState.furthestScene == 0) {
+				levelSelection.AddOptions(new List<string> { "Level 1" });
+			} else if (CarryOverState.furthestScene == 1) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2" });
+			} else if (CarryOverState.furthestScene == 2) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2", "Level 3" });
+			} else if (CarryOverState.furthestScene == 3) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2", "Level 3", "Level 4" });
+			} else if (CarryOverState.furthestScene == 4) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5" });
+			}
+		}
         if (retryButton != null)
         {
             Button retryBtn = retryButton.GetComponent<Button>();

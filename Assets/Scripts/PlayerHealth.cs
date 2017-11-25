@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
 	public AudioSource audioSrc;
     void Start()
     {
+		transform.GetComponent<Rigidbody2D>().mass = 10000;
+		transform.GetComponent<PlayerState>().health = 1000000000;
         playerState = gameObject.GetComponent<PlayerState>();
 		if (hpBar != null) {
 			hpBar.maxValue = playerState.health;
@@ -18,6 +20,20 @@ public class PlayerHealth : MonoBehaviour
 			hpBar.fillRect.GetComponent<Image>().color = Color.green;
 		}
 		Debug.Log ("Loaded: " + Time.time);
+
+		var curScene = SceneManager.GetActiveScene ().name;
+		Debug.Log ("FURTHEST SCENE: " + curScene);
+		if (curScene == "Level2") {
+			CarryOverState.furthestScene = Mathf.Max(CarryOverState.furthestScene, 1);
+		} else if (curScene == "Level3") {
+			CarryOverState.furthestScene = Mathf.Max(CarryOverState.furthestScene, 2);
+		} else if (curScene == "Level4") {
+			CarryOverState.furthestScene = Mathf.Max(CarryOverState.furthestScene, 3);
+		} else if (curScene == "Level5") {
+			CarryOverState.furthestScene = Mathf.Max(CarryOverState.furthestScene, 4);
+		} else {
+			CarryOverState.furthestScene = Mathf.Max(CarryOverState.furthestScene, 0);
+		}
     }
 
     public void DisablePlayer()
