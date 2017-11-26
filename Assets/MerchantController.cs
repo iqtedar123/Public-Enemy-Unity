@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MerchantController : MonoBehaviour
 {
@@ -11,6 +12,19 @@ public class MerchantController : MonoBehaviour
     public Text currency;
 
 	void Start() {
+		var curScene = SceneManager.GetActiveScene ().name;
+		// Assign points to the user.
+		if (CarryOverState.levelSelected) {
+			CarryOverState.points = 100;
+			CarryOverState.pointsAtStartOfLevel = 100;
+		}
+		// Restart level.
+		else if (curScene == CarryOverState.currentScene) {
+			CarryOverState.points = CarryOverState.pointsAtStartOfLevel;
+		} else {
+			CarryOverState.pointsAtStartOfLevel = CarryOverState.points;
+		}
+		CarryOverState.currentScene = curScene;
 		OpenWeaponShop ();
 	}
 
@@ -32,7 +46,7 @@ public class MerchantController : MonoBehaviour
         if(currentCurrency >= value)
         {
             currency.text = (currentCurrency - value).ToString();
-			UIManager.points = currentCurrency - value;
+			CarryOverState.points = currentCurrency - value;
 
 			return true;
         }

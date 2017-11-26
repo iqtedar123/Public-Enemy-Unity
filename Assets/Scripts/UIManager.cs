@@ -19,13 +19,26 @@ public class UIManager : MonoBehaviour {
 	public Text statusText, pointsText;
 	public Toggle tutorialToggle;
 	public static string sceneName;
-	public static int points = 100;
 	public float statusTextDuration = 5; //Seconds to read the text
 	int playOnce = 1;
 	int playBackground = 1;
 	public AudioSource DeathSound, PlayerWon, backgroundAudio;
 	// Use this for initialization
 	void Start () {
+		if (levelSelection != null) {
+			levelSelection.ClearOptions ();
+			if (CarryOverState.furthestScene == 0) {
+				levelSelection.AddOptions(new List<string> { "Level 1" });
+			} else if (CarryOverState.furthestScene == 1) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2" });
+			} else if (CarryOverState.furthestScene == 2) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2", "Level 3" });
+			} else if (CarryOverState.furthestScene == 3) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2", "Level 3", "Level 4" });
+			} else if (CarryOverState.furthestScene == 4) {
+				levelSelection.AddOptions(new List<string> { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5" });
+			}
+		}
         if (retryButton != null)
         {
             Button retryBtn = retryButton.GetComponent<Button>();
@@ -57,7 +70,7 @@ public class UIManager : MonoBehaviour {
 	void Update () {
 		if(pointsText != null)
 		{
-			pointsText.text = "" + UIManager.points;
+			pointsText.text = "" + CarryOverState.points;
 		}
 		if(gameOverReasonText != null)
         {
@@ -111,6 +124,7 @@ public class UIManager : MonoBehaviour {
 	//Initial Level to be loaded will be set here. 
 	public void openLevel()
 	{
+		CarryOverState.levelSelected = true;
 		//Store the selected level in a global variable.
 		//Opens level when button is pressed in start menu. 
 		if (levelSelection != null)
